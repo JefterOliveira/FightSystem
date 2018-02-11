@@ -1,0 +1,560 @@
+/*Mixin Inicio*/
+
+/*margin Inicio*/
+@mixin m-t-20 {
+	margin-top: 20px;
+}
+/*margin Fim*/
+
+/*Padding Inicio*/
+@mixin p-0 {
+	padding: 0;
+}
+/*Padding Fim*/
+
+/*Colors Inicio*/
+@mixin c-midnight {
+	color: #2c3e50;
+}
+@mixin c-alizarin {
+	color: #e74c3c;
+}
+@mixin c-clouds {
+	color: #ecf0f1;
+}
+@mixin c-silver {
+	color: #bdc3c7
+}
+@mixin c-white {
+	color: #fff;
+}
+/*Colors Fim*/
+
+/*Background-color Inicio*/
+@mixin b-midnight {
+	background-color: #2c3e50;
+}
+@mixin b-alizarin {
+	background-color: #e74c3c;
+}
+@mixin b-clouds {
+	background-color: #ecf0f1;
+}
+@mixin b-silver {
+	background-color: #bdc3c7
+}
+/*Background-color Fim*/
+
+/*Sombras Inicio*/
+@mixin shadow {
+	box-shadow: 1px 1px 5px rgba(00, 00, 00,0.5);
+}
+/*Sombras Fim*/
+
+/*Card Inicio*/
+@mixin border-card {
+	border-radius: 5px;
+}
+/*Card Fim*/
+/*Mixins Fim*/
+
+/*CSS Inicio*/
+body {
+	font-family: 'roboto';
+}
+/*Divisões da página Inicio*/
+.content {
+	@include b-clouds;
+	@include p-0;
+	height: 100vh;
+}
+.content-100 {
+	@include b-clouds;
+	@include p-0;
+	height: 100%;
+
+}
+.side-nav {
+	@include shadow;
+	background-color: #fff;
+	height: 100vh;
+	position: fixed;
+	z-index: 1000;
+	border-right: 3px solid #2c3e50;
+}
+.side-nav-100 {
+	@include shadow;
+	background-color: #fff;
+	height: 100%;
+	z-index: 1000;
+	border-right: 3px solid #2c3e50;
+}
+.menu-mobile {	
+	@include shadow;
+	@include b-clouds;
+	height: 100vh;
+	width: 100%;
+	position: fixed;
+	z-index: 1000;
+}
+.exit-menu {
+	@include c-midnight;
+    text-align: right;
+    padding: 20px;
+}
+.menu-adicionar {
+	@include b-alizarin;
+    padding: 10vh;
+    text-align: center;
+    color: #fff;
+    font-size: 30px;
+    font-weight: bold;
+}
+.menu-gerenciar {
+	@include b-midnight;
+    padding: 10vh;
+    text-align: center;
+    color: #fff;
+    font-size: 30px;
+    font-weight: bold;
+}
+.exit-menu i.material-icons {
+	font-size: 50px;
+}
+.col-md-12.nav-mobile {
+	background-color: #2c3e50;
+	box-shadow: 1px 1px 1px #cecece;
+	color: #fff;
+}
+.navbar-mobile {
+	padding: 10px;
+}
+.nav-mobile i.material-icons {
+	font-size: 50px;
+}
+/*Divisões da página Fim*/
+
+/*Side-nav Inicio*/
+.perfil-user {
+	margin-top: 50px;
+}
+.info-perfil {
+	@include c-midnight;
+	text-align: center;
+	font-size: 15px;
+	margin-top: 10px;
+}
+.opcoes {
+	@include b-alizarin;
+	width: 30px;
+	text-align: center;
+	vertical-align: middle;
+	padding: 3px;
+	height: 30px;
+	border-radius: 25px;
+	position: absolute;
+	float: right;
+	margin-top: 50%;
+	margin-left: 65%;
+	z-index: 1;
+}
+.add-more.material-icons {
+	@include b-alizarin;
+	@include shadow;
+	width: 40px;
+	height: 40px;
+	border-radius: 25px;
+	padding: 5px;
+	left: 205px;
+	margin-top: 125px;
+	position: absolute;
+	font-size: 30px;
+	color: #fff;
+}
+.white.material-icons {
+	@include c-white;
+}
+.more.material-icons {
+	@include b-midnight;
+	@include shadow;
+	width: 40px;
+	height: 40px;
+	border-radius: 25px;
+	padding: 5px;
+	left: 205px;
+	margin-top: 350px;
+	position: absolute;
+	font-size: 30px;
+	color: #fff;
+}
+.icon-menu.material-icons {
+	display: block;
+}
+i.material-icons.add-icon {
+	@include c-midnight;
+	font-size: 44px;
+}
+/*Side-nav Fim*/
+
+/*Content Inicio*/
+.m-t-10 {
+	margin-top: 10px;
+}
+.m-t-20 {
+	margin-top: 20px;
+}
+.m-t-30 {
+	margin-top: 30px;
+}
+.m-t-135 {
+	margin-top: 135px;
+}
+.col-nav {
+	@include p-0;
+}
+/*Content Fim*/
+
+/*MENU CIRCULAR*/
+.menu-circle {
+	@include b-midnight;
+	width: 300px;
+	height: 300px;
+	border-radius: 200px;
+	position: absolute;
+	margin-top: 3px;
+	left: -157px;
+	opacity: 0.9;
+	z-index: 1;
+}
+.menu-circle ul {
+	margin-left: 130px;
+	padding: 0;
+	margin: 0;
+	line-height: 2;
+}
+.menu-circle li {
+	text-align: center;
+	display: block;
+	color: #fff;
+}
+.menu-circle a{
+	color: #fff;
+	text-decoration: none;
+}
+li.home-li {
+	padding-left: 90px;
+	padding-top: 15px;
+}
+li.unidade-li {
+	padding-left: 170px;
+}
+li.alunos-li {
+	padding-left: 220px;
+}
+li.turmas-li {
+	padding-left: 170px;
+}
+li.aula-li {
+	padding-left: 90px;
+	line-height: 1;
+}
+/*FIM MENU CIRCULAR*/
+
+/*MENU PRINCIPAL*/
+.menu-nav {
+	@include b-midnight;
+	@include shadow;
+	color: #fff;
+	height: 100vh;
+	text-align: center;
+	width: 100px;
+	position: absolute;
+	z-index: 1;
+	left: 0;
+}
+.menu-nav a {
+	color: #fff;
+	text-decoration: none;
+}
+ul.ul-nav {	
+	list-style: none;
+	padding: 0;	
+	padding-top: 100px;
+	text-align: center;
+}
+/*FIM MENU PRINCIPAL*/
+
+/*ICONES*/
+i.material-icons.block {
+	display: block;
+}
+i.material-icons.side-menu {
+	display: block;
+}
+i.material-icons.circle {
+	display: block;
+}
+i.material-icons.f-z-45 {
+	font-size: 45px;
+}
+/*FIM ICONES HOME*/
+
+/*BOTÕES*/
+.btn-white {
+	@include c-midnight;
+	background-color: #fff;
+	width: 100%;
+	padding: 5px;
+	font-size: 14px;
+	font-weight: bold;
+	width: 100%;
+	border: none;
+	border-radius: 20px;
+}
+.btn-white i.material-icons {
+	vertical-align: middle;
+}
+.btn-clouds {
+	@include b-clouds;
+	@include c-midnight;
+	width: 100%;
+	padding: 5px;
+	font-size: 14px;
+	font-weight: bold;
+	width: 100%;
+	border: none;
+	border-radius: 20px;	
+	margin-top: 17px;
+}
+.btn-alizarin {
+	@include b-alizarin;
+	@include c-clouds;
+	width: 100%;
+	padding: 5px;
+	font-size: 14px;
+	font-weight: bold;
+	width: 100%;
+	border: none;
+	border-radius: 20px;
+}
+.btn-midnight {
+	@include b-midnight;
+	width: 100%;
+	padding: 5px;
+	color: #fff;
+	font-size: 14px;
+	font-weight: bold;
+	width: 100%;
+	border: none;
+	border-radius: 20px;
+}
+/*BOTOES FIM*/
+
+/*TÍTULO DAS PÁGINAS*/
+.title-screen {
+	color: #95A5A6;	
+}
+.title-screen h3 {
+	font-size: 27px;
+	margin-bottom: 0;
+}
+.title-screen p {
+	font-size: 20px;
+	margin-bottom: 30px;
+}
+/*FIM TÍTULO DAS PÁGINAS*/
+
+/*CARDS*/
+.card {
+	@include shadow;
+	@include border-card;
+	background-color: #fff;
+	padding: 14px;
+}
+.card.red h4 {
+	color: #fff;
+}
+.card h4 {
+	@include c-midnight;
+	font-size: 15px;	
+	margin-top: 0;	
+	font-weight: 300;
+}
+.card p {
+	font-size: 11px;
+	margin:0;
+}
+.card h2 {
+	margin: 0;
+	font-size: 34px;
+	display: inline-block;
+	font-weight: 600;
+}
+/*FIM CARD*/
+
+/*CARDS DA HOME*/
+.plano-aula ul{
+	height: 100px;
+
+}
+.plano-aula ul{
+	overflow:hidden;
+	overflow-y:scroll;
+}
+.plano-aula ul {
+	list-style:  none;
+	padding:  0;
+	line-height: 2;
+}
+.plano-aula li {
+	background-color: #ECF0F1;
+	border-bottom: solid 2px #fff;
+	padding-left: 5px;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+}
+.btn-add {
+	@include b-clouds;
+	@include shadow;
+	text-align: center;
+	padding: 10px;
+}
+.btn-add.material-icons {
+}
+.unidades p {
+	@include c-midnight;
+	display: inline-block;
+	padding: 8px;
+	font-size: 15px;
+}
+.unidades h2 {
+	@include c-alizarin;
+}
+.red {
+	@include b-alizarin;
+	@include c-clouds;
+}
+.alunos {
+	text-align: center;
+}
+.alunos h2 {
+	font-size: 90px;	
+	@include c-midnight;
+}
+.alunos h4 {
+	text-align: left;
+}
+span.destaque {
+	font-size: 20px;
+	font-weight: bold;
+}
+.datas {
+	background-color: #C0392B;
+	padding: 10px;
+	border-radius: 5px;
+	text-align: center;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+.divider-h {
+	width: 95%;
+	margin-bottom: 17px;
+}
+.img-provisorio {
+	width: 120px;
+}
+/*FIM CARDS DA HOME*/
+
+/*INICIO TELA ADD_UNIDADES*/
+
+/*INICIO CARD*/
+.card.add-img {
+	@include c-clouds;
+	padding: 20px;
+	text-align: center;
+}
+.card.add-img h4 {
+	@include c-midnight;
+	font-weight: 600;
+}
+.modal-content {
+	text-align: center;	
+}
+/*FIM CARD*/
+
+.circle-input {
+	border-radius: 20px;
+	border: none;
+}
+
+
+/*FIM TELA ADD_UNIDADES*/
+
+/*TELA ADD_TURMAS*/
+
+.label-checkbox {
+	display: block;
+}
+.checkbox {
+	width: 25px;
+	height: 25px;
+}
+.checkbox-2 {
+	width: 20px;
+	height: 20px;
+	padding-right: 10px;
+	vertical-align: middle;	
+}
+input.checkbox-2 {
+	margin: 0;	
+	margin-right: 20px;
+}
+.check-box {
+	display: inline-block;
+	margin-left: 30px;	
+	font-weight: 300;
+}
+label.label-checkbox{
+	@include c-midnight;
+	font-weight: 400;	
+	margin-top: 10px;
+}
+label.label-checkbox.title{
+	margin-left: 30px;
+}
+
+.modal-header h4 {
+	display: inline-block;
+}
+ul.ul-adicionar-alunos {
+	list-style: none;
+	font-size: 15px;
+	font-weight: 500;
+	padding: 0;
+	margin: 0;
+	line-height: 3;
+	text-align: left;
+	overflow: hidden;
+	overflow-y: scroll;
+	height: 400px;
+}
+
+/*TELA FIM ADD_TURMAS*/
+
+/*@MEDIA SETUP*/
+@media(max-width: 768px){
+	.side-nav {
+		display: none;
+	}
+	.menu-circle {
+		display: none;
+	}
+	.menu-nav {
+		display: none;
+	}
+}
+
+/*@MEDIA SETUP FIM*/
+
+
+/*CSS Fim*/

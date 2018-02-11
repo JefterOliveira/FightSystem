@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- As 3 meta tags acima *devem* vir em primeiro lugar dentro do `head`; qualquer outro conteúdo deve vir *após* essas tags -->
+  <title>FightSystem</title>
+
+  <!-- Bootstrap -->
+  <!-- Última versão CSS compilada e minificada -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <!-- Tema opcional -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+  <!-- Última versão JavaScript compilada e minificada -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+  <link href="css/main.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+  rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+
+  <!-- HTML5 shim e Respond.js para suporte no IE8 de elementos HTML5 e media queries -->
+  <!-- ALERTA: Respond.js não funciona se você visualizar uma página file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
+<body>
+  <div id="containerFluid" class="container-fluid">
+    <div class="row">
+      <div class="col-md-2 side-nav">
+        <div class="row"> 
+          <div class="col-md-12 perfil-user">
+            <div class="opcoes">
+              <i class="material-icons white">expand_more</i>
+            </div>
+            <div class="row">
+              <div class="col-md-10 col-md-offset-1">
+                <img src="img/lutador.png" alt="..." class="img-circle img-responsive">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="caption">
+                  <p class="info-perfil">Olá, <strong> Luiz Felipe Villar </strong> <i class="material-icons icon-color-blue">notifications</i> </p>
+                </div>
+              </div>
+            </div>
+          </div> 
+          <div>
+            <a id="openMenu" href="#">
+              <i class="material-icons add-more">add</i>
+            </a>
+          </div>   
+          <div>
+            <a id="openMenu2" href="#">
+              <i class="material-icons more">more_vert</i>
+            </a>
+          </div>         
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
+          </div>
+        </div>
+      </div>
+      <div class="col-md-10 col-md-offset-2 content p-0">
+        <div class="row">
+          <div id="circleMenu" class="menu-circle">
+            <ul>
+              <li class="home-li"><a href="check_in.html"><i class="material-icons circle">check_circle</i>CHECK-IN </a></li>
+              <li class="unidade-li"><a href="add_unidades.html"><i class="material-icons circle">account_balance</i>UNIDADES </a></li>
+              <li class="alunos-li"><a href="add_alunos.html"><i class="material-icons circle">person</i>ALUNOS </a></li>
+              <li class="turmas-li"><a href="add_turmas.html"><i class="material-icons circle">group</i>TURMAS </a></li>
+              <li class="aula-li"><a href="add_plano_de_aula.html"><i class="material-icons circle">insert_drive_file</i>PLANO <br> DE AULA </a></li>
+            </ul>              
+          </div>
+          <div id="sideMenu" class="menu-nav">
+            <ul class="ul-nav">
+              <li class="li-nav"><a href="index.html" style="color: #fff;"><i class="material-icons side-menu" style="display: block;">home</i>HOME </a></li>
+              <li class="li-nav"><a href="gestao_unidade.html" style="color: #fff;"><i class="material-icons side-menu">account_balance</i>UNIDADES </a></li>
+              <li class="li-nav"><a href="gestao_alunos.html" style="color: #fff;"><i class="material-icons side-menu">person</i>ALUNOS </a></li>
+              <li class="li-nav"><a href="gestao_turmas.html" style="color: #fff;"><i class="material-icons side-menu">group</i>TURMAS </a></li>
+              <li class="li-nav"><a href="gestao_plano_de_aula.html" style="color: #fff;"><i class="material-icons side-menu" style="display: block;">insert_drive_file</i>PLANO <br> DE AULA </a></li>
+            </ul>
+          </div>
+        </div>                
+        <div class="col-md-10 col-md-offset-1">  
+          <div class="row">
+            <div class="col-md-12">    
+              <div class="title-screen">
+                <h3>GESTÃO DE AlUNOS</h3>
+              </div>
+            </div>         
+          </div>
+          <div class="row topo-gestao m-t-30">
+            <div class="col-md-2 col-xs-2">
+              <div class="card gestao total">
+                <h1>35</h1>
+                <p>TOTAL</p>
+              </div>
+            </div>
+            <div class="col-md-2 col-xs-2">
+              <div class="card gestao pendentes">
+                <h1>3</h1>
+                <p>PENDENTES</p>
+              </div>
+            </div>
+            <div class="col-md-2 col-xs-2">
+              <div class="card gestao ativos">
+                <h1>27</h1>
+                <p>ATIVOS</p>
+              </div>  
+            </div>
+            <div class="col-md-2 col-xs-2">
+              <div class="card gestao inativos">
+                <h1>5</h1>
+                <p>INATIVOS</p>
+              </div>  
+            </div>
+            <div class="col-md-2 col-md-offset-2">
+              <div class="box-add-unidade">
+                <div class="btn-add-unidade">
+                  <a href="">
+                    <i class="material-icons">add</i>
+                  </a>
+                </div>
+                <p>NOVO ALUNO</p>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 no-padding-x m-t-30">
+              <table class="table table-hover">
+                <thead>
+                  <tr class="topo-table">
+                    <th class="border-top-left"><p>Nome</p></th>
+                    <th><p>Unidade</p></th>
+                    <th><p>Turma</p></th>
+                    <th><p>Turno</p></th>
+                    <th><p>Status</p></th>
+                    <th class="border-top-right"><p>Opções</p></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><img class="img-list" src="img/Franck.jpg"><p>Fabiano Valério</p></td>
+                    <td><p>LC Fitness</p></td>
+                    <td><p>000001</p></td>
+                    <td><p>Noite</p></td>
+                    <td><span class="label-status label-success"> </span></td>
+                    <td>
+                      <button class="dropdown-toggle btn-opcoes" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="material-icons">more_horiz</i>
+                      </button>
+                      <ul class="dropdown-menu dropdown-menu-right">
+                        <li>
+                          <button class="btn-opcoes btn-pophover" type="button" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">
+                            <i class="material-icons">assignment</i>
+                            <p>Abrir ficha da unidade</p>
+                          </button>
+                        </li>
+                        <li>
+                          <button class="btn-opcoes btn-pophover" onclick="openModal()" type="button" data-toggle="modal" data-target=".bs-example-modal-lg.inativar-aluno">
+                            <i class="material-icons">cancel</i>
+                            <p>Inativar aluno</p>
+                          </button>
+                        </li>
+                        <li>
+                          <button class="btn-opcoes btn-pophover" onclick="openModal()" type="button" data-toggle="modal" data-target=".bs-example-modal-lg.regularizar-aluno">
+                            <i class="material-icons">add_circle</i>
+                            <p>Regularizar aluno</p>
+                          </button>
+                        </li>
+                      </ul>
+                    </td>    
+                  </tr>
+                  <tr>
+                    <td><img class="img-list" src="img/simone.png"><p>Simone Chiesse</p></td>
+                    <td><p>LC Fitness</p> </td>
+                    <td><p>000001</p></td>
+                    <td><p>Noite</p></td>
+                    <td><span class="label-status label-success"> </span></td>
+                    <td>
+                      <button class="dropdown-toggle btn-opcoes" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="material-icons">more_horiz</i>
+                      </button>
+                      <ul class="dropdown-menu dropdown-menu-right">
+                        <li>
+                          <button class="btn-opcoes btn-pophover" type="button" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">
+                            <i class="material-icons">assignment</i>
+                            <p>Abrir ficha da unidade</p>
+                          </button>
+                        </li>
+                        <li>
+                          <button class="btn-opcoes btn-pophover" onclick="openModal()" type="button" data-toggle="modal" data-target=".bs-example-modal-lg.inativar-aluno">
+                            <i class="material-icons">cancel</i>
+                            <p>Inativar aluno</p>
+                          </button>
+                        </li>
+                        <li>
+                          <button class="btn-opcoes btn-pophover" onclick="openModal()" type="button" data-toggle="modal" data-target=".bs-example-modal-lg.regularizar-aluno">
+                            <i class="material-icons">add_circle</i>
+                            <p>Regularizar aluno</p>
+                          </button>
+                        </li>
+                      </ul>
+                    </td>                        
+                  </tr>
+                  <tr>
+                    <td><img class="img-list" src="img/luiz.png"><p>Luiz Bandeira</p></td>
+                    <td><p>LC Fitness</p> </td>
+                    <td><p>000001</p></td>
+                    <td><p>Noite</p></td>
+                    <td><span class="label-status label-warning"> </span></td>
+                    <td>
+                      <button class="dropdown-toggle btn-opcoes" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="material-icons">more_horiz</i>
+                      </button>
+                      <ul class="dropdown-menu dropdown-menu-right">
+                        <li>
+                          <button class="btn-opcoes btn-pophover" type="button" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">
+                            <i class="material-icons">assignment</i>
+                            <p>Abrir ficha da unidade</p>
+                          </button>
+                        </li>
+                        <li>
+                          <button class="btn-opcoes btn-pophover" onclick="openModal()" type="button" data-toggle="modal" data-target=".bs-example-modal-lg.inativar-aluno">
+                            <i class="material-icons">cancel</i>
+                            <p>Inativar aluno</p>
+                          </button>
+                        </li>
+                        <li>
+                          <button class="btn-opcoes btn-pophover" onclick="openModal()" type="button" data-toggle="modal" data-target=".bs-example-modal-lg.regularizar-aluno">
+                            <i class="material-icons">add_circle</i>
+                            <p>Regularizar aluno</p>
+                          </button>
+                        </li>
+                      </ul>
+                    </td>                            
+                  </tr>
+                  <tr>
+                    <td><img class="img-list" src="img/marcos.png"><p>Marcos Magalhães</p></td>
+                    <td><p>ACM</p></td>
+                    <td><p>000005</p></td>
+                    <td><p>Tarde</p></td>
+                    <td><span class="label-status label-danger"> </span></td>
+                    <td>
+                      <button class="dropdown-toggle btn-opcoes" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="material-icons">more_horiz</i>
+                      </button>
+                      <ul class="dropdown-menu dropdown-menu-right">
+                        <li>
+                          <button class="btn-opcoes btn-pophover" type="button" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">
+                            <i class="material-icons">assignment</i>
+                            <p>Abrir ficha da unidade</p>
+                          </button>
+                        </li>
+                        <li>
+                          <button class="btn-opcoes btn-pophover" onclick="openModal()" type="button" data-toggle="modal" data-target=".bs-example-modal-lg.inativar-aluno">
+                            <i class="material-icons">cancel</i>
+                            <p>Inativar aluno</p>
+                          </button>
+                        </li>
+                        <li>
+                          <button class="btn-opcoes btn-pophover" onclick="openModal()" type="button" data-toggle="modal" data-target=".bs-example-modal-lg.regularizar-aluno">
+                            <i class="material-icons">add_circle</i>
+                            <p>Regularizar aluno</p>
+                          </button>
+                        </li>
+                      </ul>
+                    </td>                         
+                  </tr>
+                  <tr>
+                    <td><img class="img-list" src="img/marcos-2.png"><p>Marcos Perelló</p></td>
+                    <td><p>ACM</p></td>
+                    <td><p>000005</p></td>
+                    <td><p>Tarde</p></td>
+                    <td><span class="label-status label-success"> </span></td>
+                    <td>
+                      <button class="dropdown-toggle btn-opcoes" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="material-icons">more_horiz</i>
+                      </button>
+                      <ul class="dropdown-menu dropdown-menu-right">
+                        <li>
+                          <button class="btn-opcoes btn-pophover" type="button" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">
+                            <i class="material-icons">assignment</i>
+                            <p>Abrir ficha da unidade</p>
+                          </button>
+                        </li>
+                        <li>
+                          <button class="btn-opcoes btn-pophover" onclick="openModal()" type="button" data-toggle="modal" data-target=".bs-example-modal-lg.inativar-aluno">
+                            <i class="material-icons">cancel</i>
+                            <p>Inativar aluno</p>
+                          </button>
+                        </li>
+                        <li>
+                          <button class="btn-opcoes btn-pophover" onclick="openModal()" type="button" data-toggle="modal" data-target=".bs-example-modal-lg.regularizar-aluno">
+                            <i class="material-icons">add_circle</i>
+                            <p>Regularizar aluno</p>
+                          </button>
+                        </li>
+                      </ul>
+                    </td>                 
+                  </tr>
+                  <tr>
+                    <td><img class="img-list" src="img/jorge.png"><p>Jorge Alves</p></td>
+                    <td><p>ACM</p></td>
+                    <td><p>000005</p></td>
+                    <td><p>Tarde</p></td>
+                    <td><span class="label-status label-warning"> </span></td>
+                    <td>
+                      <button class="dropdown-toggle btn-opcoes" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="material-icons">more_horiz</i>
+                      </button>
+                      <ul class="dropdown-menu dropdown-menu-right">
+                        <li>
+                          <button class="btn-opcoes btn-pophover" type="button" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">
+                            <i class="material-icons">assignment</i>
+                            <p>Abrir ficha da unidade</p>
+                          </button>
+                        </li>
+                        <li>
+                          <button class="btn-opcoes btn-pophover" onclick="openModal()" type="button" data-toggle="modal" data-target=".bs-example-modal-lg.inativar-aluno">
+                            <i class="material-icons">cancel</i>
+                            <p>Inativar aluno</p>
+                          </button>
+                        </li>
+                        <li>
+                          <button class="btn-opcoes btn-pophover" onclick="openModal()" type="button" data-toggle="modal" data-target=".bs-example-modal-lg.regularizar-aluno">
+                            <i class="material-icons">add_circle</i>
+                            <p>Regularizar aluno</p>
+                          </button>
+                        </li>
+                      </ul>
+                    </td>              
+                  </tr>
+
+                  <tr>
+                    <td><img class="img-list" src="img/lia.png"><p>Lia Telles</p></td>
+                    <td><p>StudioFuncionalFit</p></td>
+                    <td><p>000023</p></td>
+                    <td><p>Manhã</p></td>
+                    <td><span class="label-status label-success"> </span></td>
+                    <td>
+                      <button class="dropdown-toggle btn-opcoes" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="material-icons">more_horiz</i>
+                      </button>
+                      <ul class="dropdown-menu dropdown-menu-right">
+                        <li>
+                          <button class="btn-opcoes btn-pophover" type="button" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">
+                            <i class="material-icons">assignment</i>
+                            <p>Abrir ficha da unidade</p>
+                          </button>
+                        </li>
+                        <li>
+                          <button class="btn-opcoes btn-pophover" onclick="openModal()" type="button" data-toggle="modal" data-target=".bs-example-modal-lg.inativar-aluno">
+                            <i class="material-icons">cancel</i>
+                            <p>Inativar aluno</p>
+                          </button>
+                        </li>
+                        <li>
+                          <button class="btn-opcoes btn-pophover" onclick="openModal()" type="button" data-toggle="modal" data-target=".bs-example-modal-lg.regularizar-aluno">
+                            <i class="material-icons">add_circle</i>
+                            <p>Regularizar aluno</p>
+                          </button>
+                        </li>
+                      </ul>
+                    </td>                 
+                  </tr>
+
+                  <tr>
+                    <td><img class="img-list" src="img/marcelo.png"><p>Marcelo Leão</p></td>
+                    <td><p>StudioFuncionalFit</p></td>
+                    <td><p>000023</p></td>
+                    <td><p>Manhã</p></td>
+                    <td><span class="label-status label-danger"> </span></td>
+                    <td>
+                      <button class="dropdown-toggle btn-opcoes" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="material-icons">more_horiz</i>
+                      </button>
+                      <ul class="dropdown-menu dropdown-menu-right">
+                        <li>
+                          <button class="btn-opcoes btn-pophover" type="button" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">
+                            <i class="material-icons">assignment</i>
+                            <p>Abrir ficha da unidade</p>
+                          </button>
+                        </li>
+                        <li>
+                          <button class="btn-opcoes btn-pophover" onclick="openModal()" type="button" data-toggle="modal" data-target=".bs-example-modal-lg.inativar-aluno">
+                            <i class="material-icons">cancel</i>
+                            <p>Inativar aluno</p>
+                          </button>
+                        </li>
+                        <li>
+                          <button class="btn-opcoes btn-pophover" onclick="openModal()" type="button" data-toggle="modal" data-target=".bs-example-modal-lg.regularizar-aluno">
+                            <i class="material-icons">add_circle</i>
+                            <p>Regularizar aluno</p>
+                          </button>
+                        </li>
+                      </ul>
+                    </td>                
+                  </tr>
+
+                  <tr>
+                    <td><img class="img-list" src="img/maria.png"><p>Maria Quiteria</p></td>
+                    <td><p>StudioFuncionalFit</p></td>
+                    <td><p>000023</p></td>
+                    <td><p>Manhã</p></td>
+                    <td><span class="label-status label-success"> </span></td>
+                    <td>
+                      <button class="dropdown-toggle btn-opcoes" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="material-icons">more_horiz</i>
+                      </button>
+                      <ul class="dropdown-menu dropdown-menu-right">
+                        <li>
+                          <button class="btn-opcoes btn-pophover" type="button" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">
+                            <i class="material-icons">assignment</i>
+                            <p>Abrir ficha da unidade</p>
+                          </button>
+                        </li>
+                        <li>
+                          <button class="btn-opcoes btn-pophover" onclick="openModal()" type="button" data-toggle="modal" data-target=".bs-example-modal-lg.inativar-aluno">
+                            <i class="material-icons">cancel</i>
+                            <p>Inativar aluno</p>
+                          </button>
+                        </li>
+                        <li>
+                          <button class="btn-opcoes btn-pophover" onclick="openModal()" type="button" data-toggle="modal" data-target=".bs-example-modal-lg.regularizar-aluno">
+                            <i class="material-icons">add_circle</i>
+                            <p>Regularizar aluno</p>
+                          </button>
+                        </li>
+                      </ul>
+                    </td>                 
+                  </tr>
+                  <tr>
+                    <td><img class="img-list" src="img/sabrina.png"><p>Sabrina Simas</p></td>
+                    <td><p>StudioFuncionalFit</p></td>
+                    <td><p>000023</p></td>
+                    <td><p>Manhã</p></td>
+                    <td><span class="label-status label-success"> </span></td>
+                    <td>
+                      <button class="dropdown-toggle btn-opcoes" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="material-icons">more_horiz</i>
+                      </button>
+                      <ul class="dropdown-menu dropdown-menu-right">
+                        <li>
+                          <button class="btn-opcoes btn-pophover" type="button" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">
+                            <i class="material-icons">assignment</i>
+                            <p>Abrir ficha da unidade</p>
+                          </button>
+                        </li>
+                        <li>
+                          <button class="btn-opcoes btn-pophover" onclick="openModal()" type="button" data-toggle="modal" data-target=".bs-example-modal-lg.inativar-aluno">
+                            <i class="material-icons">cancel</i>
+                            <p>Inativar aluno</p>
+                          </button>
+                        </li>
+                        <li>
+                          <button class="btn-opcoes btn-pophover" onclick="openModal()" type="button" data-toggle="modal" data-target=".bs-example-modal-lg.regularizar-aluno">
+                            <i class="material-icons">add_circle</i>
+                            <p>Regularizar aluno</p>
+                          </button>
+                        </li>
+                      </ul>
+                    </td>              
+                  </tr>
+                </tbody>
+              </table>
+              <nav class="text-center" aria-label="">
+                <ul class="pagination">
+                  <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+                  <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+                  <li class=""><a href="#">2 <span class="sr-only">(current)</span></a></li>
+                  <li class=""><a href="#">3 <span class="sr-only">(current)</span></a></li>
+                  <li class=""><a href="#" aria-label="next"><span aria-hidden="true">»</span></a></li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+
+          <!-- ______________________________ MODAIS __________________________________ -->
+
+          <!-- ______________________________ MODAL1 _________________-________________ -->
+
+          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" style="display: none;">
+           <div class="modal-dialog" role="document">
+            <div class="modal-content alignCenter">
+             <div class="modal-header">
+              <h4>Marcos Magalhães</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+            </div>
+            <div class="modal-body">
+              <div>
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" role="tablist">
+                  <li role="presentation" class="active"><a href="#generalidades" aria-controls="generalidades" role="tab" data-toggle="tab">Generalidades</a></li>
+
+                  <li role="presentation"><a href="#informacoes" aria-controls="informacoes" role="tab" data-toggle="tab">Informações</a></li>
+
+                  <li role="presentation"><a href="#contatos" aria-controls="contatos" role="tab" data-toggle="tab">Contatos</a></li>
+
+                  <li role="presentation"><a href="#saude" aria-controls="saude" role="tab" data-toggle="tab">Saúde</a></li>
+
+                  <li role="presentation"><a href="#financeiro" aria-controls="financeiro" role="tab" data-toggle="tab">Financeiro</a></li>
+                </ul>
+
+                <!-- Tab panes -->
+                <div class="tab-content">
+                  <div role="tabpanel" class="tab-pane active" id="generalidades">
+
+                    <div class="row m-t-20">
+                      <div class="col-md-6 col-md-offset-1">
+                        <p class="text-left l-h-2">
+                          Categoria : ALUNO ATIVO <br>
+                          Status : <span class="label label-warning">PENDENTE</span> <br>
+                          Unidade : ACM <br>
+                          Turma : 000005 <br> 
+                          E-mail : marcosmagalhaes@gmail.com <br>
+                          Tel. Cel. : (21) 9 9999 0331 <br>
+                        </p>
+                      </div>
+                      <div class="col-md-5">
+                        <p class="text-left l-h-2">
+                          Plano : AMIL <br>
+                          Medicação : Não <br>
+                          Emergência : Marie J. Sinek <br>
+                          Tel. 01 (21) 2242 5599 <br>
+                          Tel. 02 (21) 2232 1489
+                        </p>
+                      </div>
+                    </div>
+                    <hr class="divisor-horizontal">
+                    <div class="row">
+                      <div class="col-md-5 col-md-offset-1">
+                        <div class="card card-pendentes">
+                          <div class="modal-header">
+                            LISTA DE PENDÊNCIAS
+                          </div>
+                          <ul class="lista-pendencias">
+                            <li><input type="checkbox" name=""> <label class="font-300">Mensalidade</label></li>
+                            <li><input type="checkbox" name=""> <label class="font-300">Anuidade</label></li>
+                            <li><input type="checkbox" name=""> <label class="font-300">Atestado Médico</label></li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="col-md-5">
+                        <button class="btn btn-regularizar" onclick="openModal()" type="button" data-toggle="modal" data-target=".bs-example-modal-lg.regularizar-aluno">
+                          Regularizar Aluno
+                        </button>
+                        <button class="btn btn-inativar m-t-20" onclick="openModal()" type="button" data-toggle="modal" data-target=".bs-example-modal-lg.inativar-aluno">
+                          Inativar Aluno
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div role="tabpanel" class="tab-pane" id="informacoes">
+                    <div class="row m-t-20">
+                      <div class="col-md-6 col-md-offset-1">
+                        <p class="text-left l-h-2">
+                          Nome : Marcos Magalhães <br>
+                          Pai : Cliff Magalhães <br>
+                          Mãe : Marie James Magalhães <br>
+                        </p>
+
+                        <hr class="divisor-horizontal">
+                        <p class="text-left l-h-2">
+                          IDT : 107.435.45-7 <br>
+                          Orgão : DDIC-SP <br>
+                          CPF : 090.356.734-10 <br>
+                        </p>
+                        <hr class="divisor-horizontal">
+                        <p class="text-left l-h-2">
+                          Data de nascimento : 25/08/1984 <br>
+                          Sexo : Masculino
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div role="tabpanel" class="tab-pane" id="contatos">
+                    <div class="row m-t-20 p-20">
+                      <div class="col-md-6">
+                        <p class="text-left l-h-2">
+                          Endereço : Rua Voluntários da Pátria, 45 <br>
+                          Complemento : Apartamento 605 <br>
+                          Bairro : Botafogo <br>
+                          Cidade : Rio de Janeiro <br> 
+                          Estado : RJ <br>
+                          CEP : 25832-109
+                        </p>
+                      </div>
+                      <div class="col-md-6">
+                        <p class="text-left l-h-2">
+                          Tel. celular : (21) 9 9999 0331 <br>
+                          Tel. Complementar : (21) 3284 8535 <br>
+                          Tel. Residencial : (21) 2291-9183 <br>
+                          Email : marcosmagalhaes@gmail.com
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div role="tabpanel" class="tab-pane" id="saude">
+                    <div class="row m-t-20 p-20">
+                      <div class="col-md-6">
+                        <p class="text-left l-h-2">
+                          Peso : 98 kg <br>
+                          Altura : 1,78 <br>
+                          Sangue : AB Positivo <br>
+                          P.A Média 130 x 80 <br>
+                          Medicação : Não <br>
+                          Fratura : Ulna
+                        </p>
+                      </div>
+                      <div class="col-md-6">
+                        <p class="text-left l-h-2">
+                          Plano : AMIL <br>
+                          Atestado : 13/05/2018 <br>
+                          Emergência : Marie James Magalhães <br>
+                          Telefone 01 : (21) 2252 1599 <br>
+                          Telefone 02 : (21) 2242 5599
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div role="tabpanel" class="tab-pane" id="financeiro">...</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- ______________________________ MODAL2 _________________-________________ -->
+      <div class="modal fade bs-example-modal-lg inativar-aluno" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" style="display: none;">
+        <div class="modal-dialog modal-sm" role="document">
+          <div class="modal-content t-c card">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="btn-modal-close" aria-hidden="true"><i class="material-icons">cancel</i></span></button>
+            <div class="row">
+              <div class="col-md-10 col-md-offset-1">
+                <h4>
+                  <strong>ALUNO INATIVADO COM SUCESSO</strong>
+                </h4>
+              </div>
+            </div> 
+          </div>
+        </div>
+      </div>
+
+      <!-- ______________________________ MODAL2 _________________-________________ -->
+
+      <div class="modal fade bs-example-modal-lg regularizar-aluno" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" style="display: none;">
+        <div class="modal-dialog modal-sm" role="document">
+          <div class="modal-content t-c card">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="btn-modal-close" aria-hidden="true"><i class="material-icons">cancel</i></span></button>
+            <div class="row">
+              <div class="col-md-10 col-md-offset-1">
+                <h4>
+                  <strong>ALUNO REGULARIZADO COM SUCESSO</strong>
+                </h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div> 
+<!-- jQuery (obrigatório para plugins JavaScript do Bootstrap) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- Inclui todos os plugins compilados (abaixo), ou inclua arquivos separadados se necessário -->
+<script type="text/javascript" src="js/menu-circular.js"></script>
+<script src="js/bootstrap.min.js"></script>
+</body>
+</html>

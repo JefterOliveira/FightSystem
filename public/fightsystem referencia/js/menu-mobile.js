@@ -1,0 +1,9 @@
+$(document).ready(function(){
+	$("#mobileMenu").hide();
+});
+$("#openMobile").click(function(){
+	$("#mobileMenu").toggle();
+});
+$("#closeMobile").click(function(){
+	$("#mobileMenu").toggle();
+});

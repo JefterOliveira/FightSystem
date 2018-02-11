@@ -1,0 +1,19 @@
+{
+  "name": "fight-system",
+  "version": "0.0.1",
+  "description": "Aplicacao fightsystem",
+  "main": "loader.js",
+  "scripts": {
+    "dev": "nodemon",
+    "production": "pm2 start loader.js --name backend",
+    "start": "node loader.js"
+  },
+  "author": "Arthur Avilla",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.4",
+    "mysql2": "^1.5.2",
+    "sequelize": "^4.33.2"
+  }
+}
