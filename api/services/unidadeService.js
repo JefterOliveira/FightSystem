@@ -12,9 +12,11 @@ db.unidade.criar = function (req, res, next) {
         bairro: req.body.bairro,
         cidade: req.body.cidade,
         estado: req.body.estado
+    }).then(function(result){
+        console.log(result)
     }, function (error) {
-        console.log(error.errors[0].message);
-        res.status(500).json(error.errors[0].message);
+        console.log(error);
+        res.status(500).json(error);
     })
 }
 

@@ -15,10 +15,9 @@ module.exports = function(server){
   });
 
   // rotas de unidade
-  router.route('unidade').post(unidadeService.criar)
-  router.route('unidade').put(unidadeService.atualizar)
-
-  //rota inicial
+  router.route('/unidade').post(unidadeService.criar)
+  router.route('/unidade').put(unidadeService.atualizar)
+  
   router.get('/', function(req, res){
 		res.status(200).render('index');
   })  
