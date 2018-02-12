@@ -431,7 +431,7 @@ button.btn-check-in {
 	}
 }
 
-/*--------------- alterado pelo arthur ----------------*/
+/*--------------- inicio do bloco alterado por arthur ----------------*/
 
 #page-wrapper {
     padding-left: 0;
@@ -443,4 +443,8 @@ button.btn-check-in {
     height: 100%;
     min-height: 100%;
     position: relative;
+}
+
+.pointer {
+    cursor: pointer;
 }

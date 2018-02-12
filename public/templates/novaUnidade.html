@@ -1,0 +1,102 @@
+<form name="formNovaUnidade">
+    <div class="col-md-10 col-md-offset-1">  
+        <div class="row">
+            <div class="col-md-12">    
+                <div class="title-screen">
+                    <h3>GESTÃO DE UNIDADES</h3>
+                </div>
+            </div>         
+        </div>
+        <div class="row">        
+            <div class="col-md-2">
+                <input class="input-none" id="upload-logo" type="file" name="upload-logo">
+                <div class="card add-img m-t-20">
+                    <label for="upload-logo">
+                        <i class="material-icons f-z-45">add_a_photo</i>
+                        <h4>ADICIONAR LOGO</h4>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group m-t-30">
+                    <input class="form-control circle-input" type="text" name="nome" placeholder="UNIDADE" ng-model="unidade.nome" required>                
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group m-t-30">
+                    <input class="form-control circle-input" type="text" name="responsavel" placeholder="RESPONSÁVEL" ng-model="unidade.responsavel" required>                    
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <input class="form-control circle-input" type="tel" mask="(99)9999-9999" name="telefone" placeholder="TELEFONE" ng-model="unidade.telefone" required>                
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <input class="form-control circle-input" type="email" name="email" placeholder="E-MAIL" ng-model="unidade.email" required>                    
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <input class="form-control circle-input" type="text" name="endereco" placeholder="ENDEREÇO" ng-model="unidade.endereco" required>                
+                </div>
+            </div>                  
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <input class="form-control circle-input" type="text" name="bairro" placeholder="BAIRRO" ng-model="unidade.bairro" required>                
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <input class="form-control circle-input" type="text" name="complemento" placeholder="COMPLEMENTO" ng-model="unidade.complemento" required>                    
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <input class="form-control circle-input" type="text" name="cidade" placeholder="CIDADE" ng-model="unidade.cidade" required>                
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <input class="form-control circle-input" type="text" name="estado" placeholder="ESTADO" ng-model="unidade.estado" required>                    
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2 col-md-offset-7">
+                <button class="btn-midnight" ng-click="limparForm()">LIMPAR</button>
+            </div>
+            <div class="col-md-3">
+                <button ng-click="cadastrarUnidade(unidade);" type="button" class="btn-alizarin" >ADICIONAR UNIDADE</button> <!--ng-disabled="formNovaUnidade.$invalid"-->
+            </div>
+        </div>
+    </div>
+</form>
+
+<!-- modal de conclusao de formulario -->
+<div id="modal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content t-c card">
+            <h3>PARABÉNS, A SUA NOVA UNIDADE FOI CRIADA COM SUCESSO</h3> 
+            <div class="row m-t-20"> 
+                <div class="col-md-5 col-md-offset-1">     
+                    <button class="btn-midnight" ng-click="fecharModal()">ADICIONAR NOVA UNIDADE</button>
+                </div>   
+                <div class="col-md-5">     
+                    <a href="#" class="btn-alizarin">VER LISTA DE UNIDADES</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

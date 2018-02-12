@@ -13,7 +13,7 @@ db.unidade.criar = function (req, res, next) {
         cidade: req.body.cidade,
         estado: req.body.estado
     }).then(function(result){
-        console.log(result)
+        res.status(200).json(result);
     }, function (error) {
         console.log(error);
         res.status(500).json(error);
@@ -45,6 +45,16 @@ db.unidade.atualizar = function(req, res, next){
     }, function(error){
         console.log(error);
         res.status(500).json(error.errors[0].message);
+    })
+}
+
+db.unidade.obterTodos = function(req, res, next){
+    db.unidade.findAll({
+        
+    }).then(function(result){
+        res.status(200).json(result)
+    },function(error){
+        console.log(error);
     })
 }
 

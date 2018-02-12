@@ -2,22 +2,36 @@ angular.module('app').controller('sideMenuController',['$scope', '$state', sideM
 
 function sideMenuController($scope, $state){
     
-    $(document).ready(function(){
+    function esconderCircleMenu(){
         $("#circleMenu").hide();
-    });
-    $("#openMenu").click(function(){
+    }
+   
+    $scope.abrirCircleMenu = function(){
         $("#circleMenu").toggle();
         $("#sideMenu").hide();
-    });
-
-    $(document).ready(function(){
-        $("#sideMenu").hide();
-    });
-    $("#openMenu2").click(function(){
+    }
+    
+    function esconderSideMenu(){
+        $(document).ready(function(){
+            $("#sideMenu").hide();
+        });
+    }
+    
+    $scope.abrirSideMenu = function(){
         $("#sideMenu").toggle();
         $("#circleMenu").hide();
-    });
+    }
     
+    $(document).ready(function(){
+        esconderCircleMenu();
+        esconderSideMenu();
+    })
+    
+    $scope.irNovaUnidade = function(){
+        esconderCircleMenu()
+        esconderSideMenu()
+        $state.go('novaunidade')
+    }
 }
 
 

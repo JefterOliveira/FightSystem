@@ -1,6 +1,7 @@
-const express = require('express');
+const express = require('express')
 
-const unidadeService = require('../api/services/unidadeService');
+const unidadeService = require('../api/services/unidadeService')
+const alunoService = require('../api/services/alunoService')
 
 module.exports = function(server){
 
@@ -17,6 +18,11 @@ module.exports = function(server){
   // rotas de unidade
   router.route('/unidade').post(unidadeService.criar)
   router.route('/unidade').put(unidadeService.atualizar)
+  router.route('/unidade').get(unidadeService.obterTodos)
+  // rotas de aluno
+  router.route('/aluno').post(alunoService.criar)
+  router.route('/aluno').put(alunoService.atualizar)
+  router.route('/aluno').get(alunoService.obterTodos)
   
   router.get('/', function(req, res){
 		res.status(200).render('index');
