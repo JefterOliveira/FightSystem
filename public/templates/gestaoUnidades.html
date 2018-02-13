@@ -1,0 +1,108 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="title-screen">
+      <h3>GESTÃO DE UNIDADES</h3>
+    </div>
+  </div>
+</div>
+<div class="row topo-gestao m-t-30">
+  <div class="col-md-2">
+    <div class="card gestao">
+      <h1>{{::qtdUnidades}}</h1>
+      <p>UNIDADES</p>
+    </div>
+  </div>
+  <div class="col-md-2">
+    <div class="card gestao">
+      <h1>{{::qtdTurmas}}</h1>
+      <p>TURMAS</p>
+    </div>
+  </div>
+  <div class="col-md-2">
+    <div class="card gestao">
+      <h1>{{::qtdAlunos}}</h1>
+      <p>ALUNOS</p>
+    </div>
+  </div>
+  <div class="col-md-2 col-md-offset-4">
+    <div class="box-add-unidade">
+      <div class="btn-add-unidade pointer">
+        <i ng-click="irNovaUnidade()" class="material-icons">add</i>
+      </div>
+      <p>NOVA UNIDADE</p>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12 no-padding-x m-t-30">
+    <table class="table table-hover">
+      <thead>
+        <tr class="topo-table">
+          <th class="border-top-left">
+            <p>Unidade</p>
+          </th>
+          <th>
+            <p>Responsável</p>
+          </th>
+          <th>
+            <p>Telefone</p>
+          </th>
+          <th>
+            <p>Alunos</p>
+          </th>
+          <th>
+            <p>Turma(s)</p>
+          </th>
+          <th class="border-top-right">
+            <p>Opções</p>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="unidade in unidades track by id">
+          <td>
+            <img class="img-list" src="img/upper.png">
+            <p>{{::unidade.nome}}</p>
+          </td>
+          <td>
+            <p>{{::unidade.responsavel}}</p>
+          </td>
+          <td>
+            <p>{{::unidade.telefone}}</p>
+          </td>
+          <td>
+            <p>{{::getQuantidadeAlunosPorUnidade(unidade.turmas)}}</p>
+          </td>
+          <td>
+            <p>{{::unidade.turmas.length}}</p>
+          </td>
+          <td>
+            <button class="dropdown-toggle btn-opcoes" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="material-icons">more_horiz</i>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-right">
+              <li>
+                <button class="btn-opcoes btn-pophover">
+                  <i class="material-icons">assignment</i>
+                  <p>Abrir ficha da unidade</p>
+                </button>
+              </li>
+              <li>
+                <button class="btn-opcoes btn-pophover">
+                  <i class="material-icons">cancel</i>
+                  <p>Inativar unidade</p>
+                </button>
+              </li>
+              <li>
+                <button class="btn-opcoes btn-pophover">
+                  <i class="material-icons">add_circle</i>
+                  <p>Adicionar turma nesta unidade</p>
+                </button>
+              </li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -32,6 +32,12 @@ function sideMenuController($scope, $state){
         esconderSideMenu()
         $state.go('novaunidade')
     }
+
+    $scope.irGestaoUnidades = function(){
+        esconderCircleMenu()
+        esconderSideMenu()
+        $state.go('gestaounidades')
+    }
 }
 
 

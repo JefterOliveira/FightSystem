@@ -17,15 +17,12 @@ function novaUnidadeCtrl($scope, $state, apiService, apiConstantes){
     }
   
     $scope.cadastrarUnidade = function(unidade){
-        var pattern = /[\D]+/g;
-        console.log(unidade)
         unidade.telefone = unidade.telefone.replace(/[\D]+/g, '');
-        console.log(unidade)
-        /*apiService.post(apiConstantes.baseUrlAPI + apiConstantes.unidade, unidade).then(function(result){
+        apiService.post(apiConstantes.baseUrlAPI + apiConstantes.unidade, unidade).then(function(result){
             $scope.limparForm();
             $("#modal").modal('show');
         }, function(error){
             console.log(error)
-        })*/
+        })
     }
 }

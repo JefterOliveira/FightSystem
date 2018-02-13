@@ -19,6 +19,7 @@ module.exports = function(server){
   router.route('/unidade').post(unidadeService.criar)
   router.route('/unidade').put(unidadeService.atualizar)
   router.route('/unidade').get(unidadeService.obterTodos)
+  router.route('/unidade/:id').delete(unidadeService.inativarUnidade)
   // rotas de aluno
   router.route('/aluno').post(alunoService.criar)
   router.route('/aluno').put(alunoService.atualizar)

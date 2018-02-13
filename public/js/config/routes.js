@@ -11,6 +11,12 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', function($
       controller: "novaUnidadeCtrl"
     })
 
+    .state('gestaounidades', {
+      url: "/gestaounidades",
+      templateUrl: "templates/gestaoUnidades.html",
+      controller: "gestaoUnidadesCtrl"
+    })
+
     $urlRouterProvider.otherwise('/home')
   }
 ])

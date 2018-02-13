@@ -50,12 +50,37 @@ db.unidade.atualizar = function(req, res, next){
 
 db.unidade.obterTodos = function(req, res, next){
     db.unidade.findAll({
-        
+        include:[
+            { 
+              model: db.turma,
+              include:[
+                    {
+                        model: db.aluno
+                    }
+                  
+              ]
+            }
+        ]      
     }).then(function(result){
         res.status(200).json(result)
     },function(error){
-        console.log(error);
+        res.status(500).json(error);
     })
+}
+
+db.unidade.inativarUnidade = function(req, res, next){
+    db.unidade.update({
+        ativo: false,
+        where:{
+            id:{
+                $eq: req.params.id
+            }
+        }
+    }).then(function(result){
+        res.status(200).json(result)
+    }, function(error){
+        res.status(500).json(error);
+    })    
 }
 
 module.exports = db.unidade;
