@@ -35,6 +35,11 @@ function gestaoUnidadesCtrl($scope, $state, apiService, apiConstantes){
         return qtdAlunos;
     }
 
+    $scope.abrirModalDetalheUnidade = function(unidade){
+        $scope.unidadeSelecionada = unidade;
+        $("#modalDetalheUnidade").modal('show');
+    }
+
     $scope.irNovaUnidade = function(){
         $state.go('novaunidade')
     }

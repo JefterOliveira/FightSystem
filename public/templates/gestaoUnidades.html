@@ -82,7 +82,7 @@
             </button>
             <ul class="dropdown-menu dropdown-menu-right">
               <li>
-                <button class="btn-opcoes btn-pophover">
+                <button class="btn-opcoes btn-pophover" ng-click="abrirModalDetalheUnidade(unidade)">
                   <i class="material-icons">assignment</i>
                   <p>Abrir ficha da unidade</p>
                 </button>
@@ -104,5 +104,82 @@
         </tr>
       </tbody>
     </table>
+  </div>
+</div>
+
+<!-- ______________________________ MODAIS __________________________________ -->
+
+<!-- ______________________________ MODAL1 _________________-________________ -->
+<div class="modal fade" id="modalDetalheUnidade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" style="display: none;">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content alignCenter">
+      <div class="modal-header">
+        <h4>StudioFuncionalFit</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-12">
+            <p class="alignRight">
+              Endereço :
+              <br> E-mail :
+            </p>
+            <p class="alignLeft">
+              {{unidadeSelecionada.endereco}}, {{unidadeSelecionada.complemento}} - {{unidadeSelecionada.cidade}} - {{unidadeSelecionada.cidade}}
+              <br> {{unidadeSelecionada.email}}
+            </p>
+          </div>
+        </div>
+        <hr class="divisor-horizontal">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="">
+              <button class="card btn-opc-unidade">
+                Editar unidade
+              </button>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="">
+              <button class="card btn-opc-unidade">
+                Ver turmas
+              </button>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="">
+              <button class="card btn-opc-unidade">
+                Ver alunos
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ______________________________ MODAL2 _________________-________________ -->
+<div class="modal fade bs-example-modal-lg" id="modalConfirmaInativacao" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+  style="display: none;">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content t-c card">
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <h4>TEM CERTEZA QUE DESEJA
+            <br>
+            <strong>INATIVAR</strong> ESSA UNIDADE</h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-5 m-t-20 col-md-offset-1">
+          <button type="button" data-dismiss="modal" aria-label="Close" class="btn-cancel">CANCELAR</button>
+        </div>
+        <div class="col-md-5 m-t-20">
+          <button class="btn-acept">ACEITAR</button>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
