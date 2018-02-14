@@ -19,6 +19,10 @@ angular.module('app').factory('apiService', apiService);
         return $http.put(uri, requestBody);
       }
 
+      service.delete = function(uri, params){
+        return $http.delete(uri + "/" + params);
+      }
+
       return service; 
 
     }

@@ -9,13 +9,19 @@
         </div>
         <div class="row">        
             <div class="col-md-2">
-                <input class="input-none" id="upload-logo" type="file" name="upload-logo">
+                <input class="input-none" id="upload-logo" type="file" name="upload-logo" ng-model="unidade.logo">
                 <div class="card add-img m-t-20">
                     <label for="upload-logo">
                         <i class="material-icons f-z-45">add_a_photo</i>
                         <h4>ADICIONAR LOGO</h4>
                     </label>
                 </div>
+            </div>
+            <div class="col-md-2">
+                <input type='file' id="inputlogo" name="inputlogo"/>
+                <button ng-click="readURL()">Add</button>
+                    <img id="blah" src="#" alt="your image" />
+                    {{foto}}
             </div>
         </div>
         <div class="row">
@@ -78,7 +84,8 @@
                 <button class="btn-midnight" ng-click="limparForm()">LIMPAR</button>
             </div>
             <div class="col-md-3">
-                <button ng-click="cadastrarUnidade(unidade);" type="button" class="btn-alizarin" >ADICIONAR UNIDADE</button> <!--ng-disabled="formNovaUnidade.$invalid"-->
+                <button ng-click="cadastrarUnidade(unidade);" type="button" class="btn-alizarin" ng-if="!unidade.id">ADICIONAR UNIDADE</button> <!--ng-disabled="formNovaUnidade.$invalid"-->
+                <button ng-click="cadastrarUnidade(unidade);" type="button" class="btn-alizarin" ng-if="unidade.id">ALTERAR UNIDADE</button>
             </div>
         </div>
     </div>

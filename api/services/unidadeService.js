@@ -69,14 +69,18 @@ db.unidade.obterTodos = function(req, res, next){
 }
 
 db.unidade.inativarUnidade = function(req, res, next){
-    db.unidade.update({
-        ativo: false,
-        where:{
-            id:{
-                $eq: req.params.id
+    db.unidade.update(
+        {
+            ativo: false
+        },
+        {
+            where:{
+                id:{
+                    $eq: req.params.id
+                }
             }
-        }
-    }).then(function(result){
+        }    
+    ).then(function(result){
         res.status(200).json(result)
     }, function(error){
         res.status(500).json(error);

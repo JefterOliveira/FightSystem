@@ -1,9 +1,12 @@
-angular.module('app').controller('novaUnidadeCtrl',['$scope', '$state', 'apiService', 'apiConstantes',  novaUnidadeCtrl])
+angular.module('app').controller('novaUnidadeCtrl',['$scope', '$state', 'apiService', 'apiConstantes', novaUnidadeCtrl])
 
 function novaUnidadeCtrl($scope, $state, apiService, apiConstantes){
     
-    $scope.unidade = {};
-    
+    if($state.params.unidade)
+        $scope.unidade = $state.params.unidade
+    else
+        $scope.unidade = {};
+
     $scope.limparForm = function(){
         $scope.unidade = {};
     }
@@ -14,6 +17,21 @@ function novaUnidadeCtrl($scope, $state, apiService, apiConstantes){
     
     $scope.irListaUnidades = function(){
         //$state.go('listaunidade');
+    }
+
+    $scope.readURL = function(){
+        if ($('#inputlogo') && $('#inputlogo')[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#blah')
+                    .attr('src', e.target.result)
+                    .width(150)
+                    .height(200);
+            };
+
+            reader.readAsDataURL($('#inputlogo')[0]);
+        }
     }
   
     $scope.cadastrarUnidade = function(unidade){

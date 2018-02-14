@@ -88,9 +88,13 @@
                 </button>
               </li>
               <li>
-                <button class="btn-opcoes btn-pophover">
+                <button class="btn-opcoes btn-pophover" ng-click="abrirModalConfirmaInativacao(unidade)" ng-if="unidade.ativo">
                   <i class="material-icons">cancel</i>
                   <p>Inativar unidade</p>
+                </button>
+                <button class="btn-opcoes btn-pophover" ng-if="!unidade.ativo">
+                  <i class="material-icons">cancel</i>
+                  <p>Ativar unidade</p>
                 </button>
               </li>
               <li>
@@ -136,7 +140,7 @@
         <div class="row">
           <div class="col-md-4">
             <div class="">
-              <button class="card btn-opc-unidade">
+              <button class="card btn-opc-unidade" ng-click="editarUnidade()" data-dismiss="modal"> 
                 Editar unidade
               </button>
             </div>
@@ -177,7 +181,7 @@
           <button type="button" data-dismiss="modal" aria-label="Close" class="btn-cancel">CANCELAR</button>
         </div>
         <div class="col-md-5 m-t-20">
-          <button class="btn-acept">ACEITAR</button>
+          <button class="btn-acept" ng-click="inativarUnidade()">ACEITAR</button>
         </div>
       </div>
     </div>

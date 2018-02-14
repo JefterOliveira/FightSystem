@@ -40,6 +40,27 @@ function gestaoUnidadesCtrl($scope, $state, apiService, apiConstantes){
         $("#modalDetalheUnidade").modal('show');
     }
 
+    $scope.abrirModalConfirmaInativacao = function(unidade){
+        $scope.unidadeSelecionada = unidade;
+        $("#modalConfirmaInativacao").modal('show');
+    }
+
+    $scope.inativarUnidade = function(){
+        $('#modalConfirmaInativacao').modal('hide')
+        $('.modal-backdrop').remove()
+        apiService.delete(apiConstantes.baseUrlAPI + apiConstantes.unidade, $scope.unidadeSelecionada.id).then(function(result){
+            console.log(result)
+        }, function(error){
+            console.log(error)
+        })
+    }
+
+    $scope.editarUnidade = function(){
+        $('#modalDetalheUnidade').modal('hide')
+        $('.modal-backdrop').remove()
+        $state.go('novaunidade', {unidade :  $scope.unidadeSelecionada})
+    }
+
     $scope.irNovaUnidade = function(){
         $state.go('novaunidade')
     }

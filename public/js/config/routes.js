@@ -7,6 +7,9 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', function($
         
     .state('novaunidade', {
       url: "/novaunidade",
+      params: {
+        unidade: null 
+      },    
       templateUrl: "templates/novaUnidade.html",
       controller: "novaUnidadeCtrl"
     })
