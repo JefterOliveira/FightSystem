@@ -39,7 +39,7 @@ module.exports = (conexao, Sequelize) => {
     type: Sequelize.BOOLEAN, allowNull: false, defaultValue: true
   },
   logo:{
-    type: Sequelize.TEXT, allowNull: true
+    type: Sequelize.STRING(100), allowNull: true
   }
 },{
   freezeTableName: true,

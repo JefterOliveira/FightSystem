@@ -6,7 +6,16 @@ module.exports = (conexao, Sequelize) => {
         type: Sequelize.INTEGER, primaryKey: true, autoIncrement: true, allowNull: false
     },
     professor: {
-        type: Sequelize.STRING(50), allowNull: false
+        type: Sequelize.STRING(60), allowNull: false
+    },
+    turno:{
+        type: Sequelize.STRING(10), allowNull: false
+    },
+    horaInicio:{
+        type: Sequelize.STRING(10), allowNull: false
+    },
+    horaFim:{
+        type: Sequelize.STRING(10), allowNull: false
     },
     mensalidade: {
         type: Sequelize.DOUBLE, allowNull: false

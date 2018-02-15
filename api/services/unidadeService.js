@@ -1,6 +1,12 @@
 const db = require('../../config/database');
+const fs = require('fs')
 
 db.unidade.criar = function (req, res, next) {
+
+    let fileDirectory = 'public/uploads/logo' + req.body.nome + '.png';
+    let filesrc = 'uploads/logo' + req.body.nome + '.png';
+    salvarLogo(req.body.logo, fileDirectory)
+
     db.unidade.create({
         nome: req.body.nome,
         responsavel: req.body.responsavel,
@@ -12,7 +18,7 @@ db.unidade.criar = function (req, res, next) {
         bairro: req.body.bairro,
         cidade: req.body.cidade,
         estado: req.body.estado,
-        logo: req.body.logo
+        logo: filesrc
     }).then(function(result){
         res.status(200).json(result);
     }, function (error) {
@@ -21,7 +27,26 @@ db.unidade.criar = function (req, res, next) {
     })
 }
 
+function salvarLogo(logoBase64, fileDirectory){
+
+    let base64Data = logoBase64.replace(/^data:image\/png;base64,/,"");
+    let binaryData = new Buffer(base64Data, 'base64').toString('binary');
+
+    fs.writeFile(fileDirectory, binaryData, 'binary', function(err){
+        if (err){
+            console.log(err)
+            throw err
+        } 
+        console.log('File saved.')
+    })
+}
+
 db.unidade.atualizar = function(req, res, next){
+
+    let fileDirectory = 'public/uploads/logo' + req.body.nome + '.png';
+    let filesrc = 'uploads/logo' + req.body.nome + '.png';
+    salvarLogo(req.body.logo, fileDirectory)
+
     db.unidade.update({
         nome: req.body.nome,
         responsavel: req.body.responsavel,
@@ -33,7 +58,7 @@ db.unidade.atualizar = function(req, res, next){
         bairro: req.body.bairro,
         cidade: req.body.cidade,
         estado: req.body.estado,
-        logo: req.body.logo,
+        logo: filesrc,
         ativo: req.body.ativo
     }, {
         where: {

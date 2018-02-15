@@ -1,0 +1,192 @@
+<form name="formNovaTurma">
+    <div class="col-md-10 col-md-offset-1">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="title-screen">
+                    <h3>GESTÃO DE TURMAS</h3>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 m-t-135">     
+                <div class="form-group m-t-30">
+                    <select class="form-control circle-input" ng-model="turma.unidade" name="unidade" ng-options="unidade.id as unidade.nome for unidade in unidades" required></select>
+                </div>
+            </div>
+            <div class="col-md-6 m-t-135">
+                <div class="form-group m-t-30">
+                    <input class="form-control circle-input" type="text" ng-model="turma.professor" name="professor" placeholder="PROFESSOR" required>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <input class="form-control circle-input" type="text" name="inicio" mask="23:59" ng-model="turma.horaInicio" placeholder="INÍCIO">
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <input class="form-control circle-input" type="text" name="termino" mask="23:59" ng-model="turma.horaFim" placeholder="TÉRMINO">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                        <select class="form-control circle-input" ng-model="curso" name="curso" ng-options="curso.id as curso.nome for curso in cursos" required></select>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <label class="label-checkbox title">DIAS DE AULA</label>
+                <div class="form-group check-box">
+                    <input class="checkbox" type="checkbox" name="" ng-model="checkboxDias.SEG" value="0">
+                    <label class="label-checkbox">SEG</label>
+                </div>
+                <div class="form-group check-box">
+                    <input class="checkbox" type="checkbox" name="" ng-model="checkboxDias.TER" value="1">
+                    <label class="label-checkbox">TER</label>
+                </div>
+                <div class="form-group check-box">
+                    <input class="checkbox" type="checkbox" name="" ng-model="checkboxDias.QUA" value="2">
+                    <label class="label-checkbox">QUA</label>
+                </div>
+                <div class="form-group check-box">
+                    <input class="checkbox" type="checkbox" name="" ng-model="checkboxDias.QUI" value="3">
+                    <label class="label-checkbox">QUI</label>
+                </div>
+                <div class="form-group check-box">
+                    <input class="checkbox" type="checkbox" name="" ng-model="checkboxDias.SEX" value="4">
+                    <label class="label-checkbox">SEX</label>
+                </div>
+                <div class="form-group check-box">
+                    <input class="checkbox" type="checkbox" name="" ng-model="checkboxDias.SAB" value="5">
+                    <label class="label-checkbox">SÁB</label>
+                </div>
+                <div class="form-group check-box">
+                    <input class="checkbox" type="checkbox" name="" ng-model="checkboxDias.DOM" value="6">
+                    <label class="label-checkbox">DOM</label>
+                </div>
+                <br/>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <label class="label-radio title">TURNOS</label>
+                    <div class="form-group">
+                        <input class="" type="radio" ng-model="turno" name="turno" value="manha" required>
+                        <label class="label-checkbox">MANHÃ </label>
+                    </div>
+                    <div class="form-group">
+                        <input class="" type="radio" ng-model="turno" name="turno" value="tarde" required>
+                        <label class="label-checkbox">TARDE</label>
+                    </div>
+                    <div class="form-group">
+                        <input  class="" type="radio" ng-model="turno" name="turno" value="noite" required>
+                        <label class="label-checkbox">NOITE</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <button class="btn-white" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">ADICIONAR ALUNOS PARA ESSA TURMA
+                    <i class="material-icons">keyboard_arrow_right</i>
+                </button>
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4>ADICIONAR ALUNOS</h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-md-6 col-md-offset-3">
+                                        <ul class="ul-adicionar-alunos">
+                                            <li>
+                                                <input class="checkbox-2" type="checkbox" name="">Rafaela Cristina</li>
+                                            <li>
+                                                <input class="checkbox-2" type="checkbox" name="">Franck Pierre</li>
+                                            <li>
+                                                <input class="checkbox-2" type="checkbox" name="">Vinicius Quadros</li>
+                                            <li>
+                                                <input class="checkbox-2" type="checkbox" name="">Newton Machado</li>
+                                            <li>
+                                                <input class="checkbox-2" type="checkbox" name="">Lucas Marcondes</li>
+                                            <li>
+                                                <input class="checkbox-2" type="checkbox" name="">Lucas Moura</li>
+                                            <li>
+                                                <input class="checkbox-2" type="checkbox" name="">Pedro Henrique</li>
+                                            <li>
+                                                <input class="checkbox-2" type="checkbox" name="">Rafaela Cristina</li>
+                                            <li>
+                                                <input class="checkbox-2" type="checkbox" name="">Franck Pierre</li>
+                                            <li>
+                                                <input class="checkbox-2" type="checkbox" name="">Vinicius Quadros</li>
+                                            <li>
+                                                <input class="checkbox-2" type="checkbox" name="">Newton Machado</li>
+                                            <li>
+                                                <input class="checkbox-2" type="checkbox" name="">Lucas Marcondes</li>
+                                            <li>
+                                                <input class="checkbox-2" type="checkbox" name="">Lucas Moura</li>
+                                            <li>
+                                                <input class="checkbox-2" type="checkbox" name="">Pedro Henrique</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <button type="button" class="btn-midnight" data-dismiss="modal">FECHAR</button>
+                                    </div>
+                                    <div class="col-md-5 col-md-offset-4">
+                                        <button type="button" class="btn-alizarin">ADICIONAR ALUNOS</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <input class="form-control circle-input" type="text" name="mensalidade" ng-model="turma.mensalidade" mask="999.99" placeholder="MENSALIDADE">
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <input class="form-control circle-input" type="text" name="rateio" ng-model="turma.rateio" mask="99" placeholder="RATEIO">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2 m-t-30 col-md-offset-7">
+                    <button class="btn-midnight" ng-click="adicionaDiaAulaTurma()">LIMPAR</button>
+                </div>
+                <div class="col-md-3 m-t-30">
+                    <button onclick="openModal()" type="button" class="btn-alizarin" data-toggle="modal" data-target=".bs-example-modal-lg">ADICIONAR TURMA</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<!-- modal confirmacao-->
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content card">
+            <h3>PARABÉNS, SUA NOVA TURMA FOI CRIADA COM SUCESSO!</h3>
+            <div class="row">
+                <div class="col-md-5 col-md-offset-1">
+                    <button class="btn-midnight">ADICIONAR NOVA TURMA</button>
+                </div>
+                <div class="col-md-5">
+                    <button class="btn-midnight">VER DADOS FINANCEIROS</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

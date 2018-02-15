@@ -4,8 +4,9 @@ function novaUnidadeCtrl($scope, $state, apiService, apiConstantes){
     
     if($state.params.unidade){
         $scope.unidade = $state.params.unidade
+        let logosrc = $scope.unidade.logo + '?' + new Date().getTime();
         $('#imglogo')
-            .attr('src', $scope.unidade.logo)
+            .attr('src', logosrc)
             .width(150)
             .height(200);
     } 
@@ -16,6 +17,8 @@ function novaUnidadeCtrl($scope, $state, apiService, apiConstantes){
 
     $scope.limparForm = function(){
         $scope.unidade = {};
+        $('#imglogo')
+            .attr('src', "#")
     }
     
     $scope.fecharModal = function(){

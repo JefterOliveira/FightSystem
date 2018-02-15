@@ -1,7 +1,7 @@
 'use strict'
 
 const Sequelize = require('sequelize');
-const conexao = new Sequelize('fightsystem', 'root', 'maribibi', {
+const conexao = new Sequelize('fightsystem', 'root', 'root', {
   host: 'localhost',
   dialect: 'mysql',
 });
@@ -19,6 +19,8 @@ db.turma = require('../api/model/turma')(conexao, Sequelize)
 db.curso = require('../api/model/curso')(conexao, Sequelize)
 db.aluno = require('../api/model/aluno')(conexao, Sequelize)
 db.categoria = require('../api/model/categoria')(conexao, Sequelize)
+db.categoria = require('../api/model/categoria')(conexao, Sequelize)
+db.diaAulaTurma = require('../api/model/diaAulaTurma')(conexao, Sequelize)
 
 //relacionamentos
 db.unidade.hasMany(db.turma, { foreignKey: 'unidadeReferencia' })
@@ -29,6 +31,9 @@ db.turma.belongsTo(db.curso, { foreignKey: 'cursoReferencia' })
 
 db.turma.hasMany(db.aluno, {foreignKey: 'turmaReferencia'})
 db.aluno.belongsTo(db.turma, { foreignKey: 'turmaReferencia' })
+
+db.turma.hasMany(db.diaAulaTurma, {foreignKey: 'turmaReferencia'})
+db.diaAulaTurma.belongsTo(db.turma, {foreignKey: 'turmaReferencia'})
 
 db.categoria.hasMany(db.aluno, {foreignKey: 'categoriaReferencia'})
 db.aluno.belongsTo(db.categoria, { foreignKey: 'categoriaReferencia' })

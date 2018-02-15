@@ -55,6 +55,10 @@ function gestaoUnidadesCtrl($scope, $state, apiService, apiConstantes){
         })
     }
 
+    $scope.getUnidadeLogo = function(logosrc){
+        return logosrc + '?' + new Date().getTime();
+    }
+
     $scope.editarUnidade = function(){
         $('#modalDetalheUnidade').modal('hide')
         $('.modal-backdrop').remove()

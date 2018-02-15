@@ -16,6 +16,9 @@ angular.module('app').constant("apiConstantes", {
     aluno: "/aluno",
     
     //rotas de turma
-    turma: "/turma"
+    turma: "/turma",
+
+    //rotas de curso
+    curso: "/curso"
 
 });

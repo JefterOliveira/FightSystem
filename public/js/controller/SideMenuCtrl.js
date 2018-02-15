@@ -38,6 +38,12 @@ function sideMenuController($scope, $state){
         esconderSideMenu()
         $state.go('gestaounidades')
     }
+
+    $scope.irNovaTurma = function(){
+        esconderCircleMenu()
+        esconderSideMenu()
+        $state.go('novaturma')
+    }
 }
 
 

@@ -61,7 +61,7 @@
       <tbody>
         <tr ng-repeat="unidade in unidades track by unidade.id">
           <td>
-            <img class="img-list" src={{::unidade.logo}}>
+            <img class="img-list" src={{::getUnidadeLogo(unidade.logo)}}>
             <p>{{::unidade.nome}}</p>
           </td>
           <td>

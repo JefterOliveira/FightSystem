@@ -18,11 +18,11 @@
                     </div>
                 </div>
             </div> 
-            <div class="pointer" ng-click="abrirCircleMenu()">
+            <div class="pointer" id="openCircleMenu" ng-click="abrirCircleMenu()">
                     <i class="material-icons add-more" >add</i>
             </div>   
             <div>
-                <a id="openMenu2" href="#" ng-click="abrirSideMenu()">
+                <a class="pointer" id="openMenuBar" ng-click="abrirSideMenu()">
                     <i class="material-icons more">more_vert</i> </a>
             </div>         
         </div>
@@ -39,7 +39,7 @@
                     <li class="home-li pointer"><a href="check_in.html"><i class="material-icons circle">check_circle</i>CHECK-IN </a></li>
                     <li class="unidade-li pointer"><i class="material-icons circle" ng-click="irNovaUnidade()">account_balance</i>UNIDADES</li>
                     <li class="alunos-li pointer"><a href="add_alunos.html"><i class="material-icons circle">person</i>ALUNOS </a></li>
-                    <li class="turmas-li pointer"><a href="add_turmas.html"><i class="material-icons circle">group</i>TURMAS </a></li>
+                    <li class="turmas-li pointer"><i class="material-icons circle" ng-click="irNovaTurma()">group</i>TURMAS</li>
                     <li class="aula-li pointer"><a href="add_plano_de_aula.html"><i class="material-icons circle">insert_drive_file</i>PLANO <br/> DE AULA </a></li>
                 </ul>              
             </div>
