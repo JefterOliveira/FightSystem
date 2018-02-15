@@ -11,7 +11,8 @@ db.unidade.criar = function (req, res, next) {
         complemento: req.body.complemento,
         bairro: req.body.bairro,
         cidade: req.body.cidade,
-        estado: req.body.estado
+        estado: req.body.estado,
+        logo: req.body.logo
     }).then(function(result){
         res.status(200).json(result);
     }, function (error) {
@@ -32,6 +33,7 @@ db.unidade.atualizar = function(req, res, next){
         bairro: req.body.bairro,
         cidade: req.body.cidade,
         estado: req.body.estado,
+        logo: req.body.logo,
         ativo: req.body.ativo
     }, {
         where: {
@@ -44,7 +46,7 @@ db.unidade.atualizar = function(req, res, next){
         res.status(200).json(result);
     }, function(error){
         console.log(error);
-        res.status(500).json(error.errors[0].message);
+        res.status(500).json(error);
     })
 }
 

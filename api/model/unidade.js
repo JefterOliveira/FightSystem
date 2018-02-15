@@ -37,10 +37,10 @@ module.exports = (conexao, Sequelize) => {
   },
   ativo:{
     type: Sequelize.BOOLEAN, allowNull: false, defaultValue: true
+  },
+  logo:{
+    type: Sequelize.TEXT, allowNull: true
   }
-  /*logo:{
-    type: Sequelize.STRING, allowNull: true
-  }*/
 },{
   freezeTableName: true,
   underscored: false

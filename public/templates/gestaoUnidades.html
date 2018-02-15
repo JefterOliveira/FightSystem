@@ -59,9 +59,9 @@
         </tr>
       </thead>
       <tbody>
-        <tr ng-repeat="unidade in unidades track by id">
+        <tr ng-repeat="unidade in unidades track by unidade.id">
           <td>
-            <img class="img-list" src="img/upper.png">
+            <img class="img-list" src={{::unidade.logo}}>
             <p>{{::unidade.nome}}</p>
           </td>
           <td>

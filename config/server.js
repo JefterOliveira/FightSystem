@@ -5,8 +5,9 @@ const express = require('express');
 const server = express(); //instancia do express
 const allowCors = require('./cors');
 
-server.use(bodyParser.urlencoded({ extended: true}));
-server.use(bodyParser.json()); //parse de requisicoes com json como parametro
+server.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
+server.use(bodyParser.json({limit: '50mb'})); //parse de requisicoes com json como parametro
+
 server.use(allowCors)//habilita o cors
 
 server.use(express.static('public'));

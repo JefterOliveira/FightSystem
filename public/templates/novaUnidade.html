@@ -9,20 +9,22 @@
         </div>
         <div class="row">        
             <div class="col-md-2">
-                <input class="input-none" id="upload-logo" type="file" name="upload-logo" ng-model="unidade.logo">
+                <img id="imglogo" src="#" alt=""/>
+                <input  type="file" id="upload-logo"  name="upload-logo" />
+                <button ng-click="imageToBase64()">Add</button>
+                <!-- class="input-none" <input class="input-none" type='file' id="inputlogo" name="inputlogo"/>
                 <div class="card add-img m-t-20">
                     <label for="upload-logo">
                         <i class="material-icons f-z-45">add_a_photo</i>
                         <h4>ADICIONAR LOGO</h4>
                     </label>
-                </div>
+                </div>-->    
             </div>
-            <div class="col-md-2">
+            <!--<div class="col-md-2">
                 <input type='file' id="inputlogo" name="inputlogo"/>
-                <button ng-click="readURL()">Add</button>
-                    <img id="blah" src="#" alt="your image" />
-                    {{foto}}
-            </div>
+                <button ng-click="imageToBase64()">Add</button>
+                    <img id="imglogo" src="#" alt=""/>
+            </div>-->
         </div>
         <div class="row">
             <div class="col-md-6">
@@ -85,7 +87,7 @@
             </div>
             <div class="col-md-3">
                 <button ng-click="cadastrarUnidade(unidade);" type="button" class="btn-alizarin" ng-if="!unidade.id">ADICIONAR UNIDADE</button> <!--ng-disabled="formNovaUnidade.$invalid"-->
-                <button ng-click="cadastrarUnidade(unidade);" type="button" class="btn-alizarin" ng-if="unidade.id">ALTERAR UNIDADE</button>
+                <button ng-click="alterarUnidade(unidade);" type="button" class="btn-alizarin" ng-if="unidade.id">ALTERAR UNIDADE</button>
             </div>
         </div>
     </div>
@@ -101,7 +103,7 @@
                     <button class="btn-midnight" ng-click="fecharModal()">ADICIONAR NOVA UNIDADE</button>
                 </div>   
                 <div class="col-md-5">     
-                    <a href="#" class="btn-alizarin">VER LISTA DE UNIDADES</a>
+                    <button class="btn-alizarin" ng-click="irGestaoUnidades()">VER LISTA DE UNIDADES</button>
                 </div>
             </div>
         </div>
