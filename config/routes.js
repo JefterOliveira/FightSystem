@@ -3,6 +3,7 @@ const express = require('express')
 const unidadeService = require('../api/services/unidadeService')
 const alunoService = require('../api/services/alunoService')
 const cursoService = require('../api/services/cursoService')
+const turmaService = require('../api/services/turmaService')
 
 module.exports = function(server){
 
@@ -21,6 +22,8 @@ module.exports = function(server){
   router.route('/unidade').put(unidadeService.atualizar)
   router.route('/unidade').get(unidadeService.obterTodos)
   router.route('/unidade/:id').delete(unidadeService.inativarUnidade)
+  //rotas de turma
+  router.route('/turma').post(turmaService.criar)
   // rotas de aluno
   router.route('/aluno').post(alunoService.criar)
   router.route('/aluno').put(alunoService.atualizar)

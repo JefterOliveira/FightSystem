@@ -6,25 +6,25 @@ function novaTurmaCtrl($scope, $state, apiService, apiConstantes){
     $scope.cursos = [];
     $scope.turma = {};
     $scope.turma.diaAulaTurma = [];
-    console.log(diasSemanaEnum);
+    $scope.turma.diaAulaTurmaApoio = [];
 
-    $scope.checkboxDias = {
-        dias: false,
-        TER: false,
-        QUA: false,
-        QUI: false,
-        SEX: false,
-        SAB: false,
-        DOM: false
+    $scope.testconsole = function(){
+        console.log($scope.turma)
     }
 
-    $scope.adicionaDiaAulaTurma = function(){
-        for (var dia in $scope.checkboxDias) {
-            if($scope.checkboxDias[dia]){
-                $scope.turma.diaAulaTurma.push()
-            }
-        }
+    $scope.compararDiaSemana = function(obj1, obj2) {
+        return obj1 === obj2;
     }
+
+    $scope.checkboxDias = [
+        {text: "SEG", value: diasSemanaEnum.SEG},
+        {text: "TER", value: diasSemanaEnum.TER},
+        {text: "QUA", value: diasSemanaEnum.QUA},
+        {text: "QUI", value: diasSemanaEnum.QUI},
+        {text: "SEX", value: diasSemanaEnum.SEX},
+        {text: "SAB", value: diasSemanaEnum.SAB},
+        {text: "DOM", value: diasSemanaEnum.DOM}
+    ]
 
     function getUnidades(){
         apiService.get(apiConstantes.baseUrlAPI + apiConstantes.unidade).then(function(result){
@@ -41,7 +41,19 @@ function novaTurmaCtrl($scope, $state, apiService, apiConstantes){
             console.log(error)
         })
     }
-
     getUnidades();
     getCursos();
+
+    function prepararTurmaDiaAula(array){
+        return array.map(value => ({diaSemana: value}))
+    }
+
+    $scope.salvarTurma = function(turma){
+        $scope.turma.diaAulaTurma = prepararTurmaDiaAula($scope.turma.diaAulaTurmaApoio)
+        apiService.post(apiConstantes.baseUrlAPI + apiConstantes.turma, turma).then(function(result){
+            console.log(result)
+        }, function(error){
+            console.log(error)
+        })
+    }
 }

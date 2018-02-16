@@ -23,11 +23,11 @@ db.categoria = require('../api/model/categoria')(conexao, Sequelize)
 db.diaAulaTurma = require('../api/model/diaAulaTurma')(conexao, Sequelize)
 
 //relacionamentos
-db.unidade.hasMany(db.turma, { foreignKey: 'unidadeReferencia' })
-db.turma.belongsTo(db.unidade, { foreignKey: 'unidadeReferencia' })
+db.unidade.hasMany(db.turma, { foreignKey: 'unidadeReferencia' })//impedir null foreignKey: { name: 'uid',  allowNull: false}
+db.turma.belongsTo(db.unidade, { foreignKey: 'unidadeReferencia' })//impedir null
 
-db.curso.hasMany(db.turma, {foreignKey: 'cursoReferencia'})
-db.turma.belongsTo(db.curso, { foreignKey: 'cursoReferencia' })
+db.curso.hasMany(db.turma, {foreignKey: 'cursoReferencia'})//impedir null
+db.turma.belongsTo(db.curso, { foreignKey: 'cursoReferencia' })//impedir null
 
 db.turma.hasMany(db.aluno, {foreignKey: 'turmaReferencia'})
 db.aluno.belongsTo(db.turma, { foreignKey: 'turmaReferencia' })

@@ -8,14 +8,16 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6 m-t-135">     
+            <div class="col-md-6 m-t-135">
                 <div class="form-group m-t-30">
-                    <select class="form-control circle-input" ng-model="turma.unidade" name="unidade" ng-options="unidade.id as unidade.nome for unidade in unidades" required></select>
+                    <select class="form-control circle-input" ng-model="turma.unidade" name="unidade" ng-options="unidade.id as unidade.nome for unidade in unidades"
+                        required></select>
                 </div>
             </div>
             <div class="col-md-6 m-t-135">
                 <div class="form-group m-t-30">
-                    <input class="form-control circle-input" type="text" ng-model="turma.professor" name="professor" placeholder="PROFESSOR" required>
+                    <input class="form-control circle-input" type="text" ng-model="turma.professor" name="professor" placeholder="PROFESSOR"
+                        required>
                 </div>
             </div>
         </div>
@@ -32,56 +34,35 @@
             </div>
             <div class="col-md-6">
                 <div class="form-group">
-                        <select class="form-control circle-input" ng-model="curso" name="curso" ng-options="curso.id as curso.nome for curso in cursos" required></select>
+                    <select class="form-control circle-input" ng-model="turma.curso" name="curso" ng-options="curso.id as curso.nome for curso in cursos"
+                        required></select>
                 </div>
             </div>
         </div>
+
         <div class="row">
             <div class="col-md-6">
                 <label class="label-checkbox title">DIAS DE AULA</label>
-                <div class="form-group check-box">
-                    <input class="checkbox" type="checkbox" name="" ng-model="checkboxDias.SEG" value="0">
-                    <label class="label-checkbox">SEG</label>
+                <div class="form-group check-box" ng-repeat="dia in checkboxDias">
+                    <label>
+                        <input class="checkbox" type="checkbox" checklist-model="turma.diaAulaTurmaApoio" checklist-value="dia.value" checklist-comparator="compararDiaSemana">
+                        <label class="label-checkbox">{{dia.text}}</label>
+                    </label>
                 </div>
-                <div class="form-group check-box">
-                    <input class="checkbox" type="checkbox" name="" ng-model="checkboxDias.TER" value="1">
-                    <label class="label-checkbox">TER</label>
-                </div>
-                <div class="form-group check-box">
-                    <input class="checkbox" type="checkbox" name="" ng-model="checkboxDias.QUA" value="2">
-                    <label class="label-checkbox">QUA</label>
-                </div>
-                <div class="form-group check-box">
-                    <input class="checkbox" type="checkbox" name="" ng-model="checkboxDias.QUI" value="3">
-                    <label class="label-checkbox">QUI</label>
-                </div>
-                <div class="form-group check-box">
-                    <input class="checkbox" type="checkbox" name="" ng-model="checkboxDias.SEX" value="4">
-                    <label class="label-checkbox">SEX</label>
-                </div>
-                <div class="form-group check-box">
-                    <input class="checkbox" type="checkbox" name="" ng-model="checkboxDias.SAB" value="5">
-                    <label class="label-checkbox">SÁB</label>
-                </div>
-                <div class="form-group check-box">
-                    <input class="checkbox" type="checkbox" name="" ng-model="checkboxDias.DOM" value="6">
-                    <label class="label-checkbox">DOM</label>
-                </div>
-                <br/>
             </div>
             <div class="row">
                 <div class="col-md-6">
                     <label class="label-radio title">TURNOS</label>
                     <div class="form-group">
-                        <input class="" type="radio" ng-model="turno" name="turno" value="manha" required>
+                        <input class="" type="radio" ng-model="turma.turno" name="turno" value="manha" required>
                         <label class="label-checkbox">MANHÃ </label>
                     </div>
                     <div class="form-group">
-                        <input class="" type="radio" ng-model="turno" name="turno" value="tarde" required>
+                        <input class="" type="radio" ng-model="turma.turno" name="turno" value="tarde" required>
                         <label class="label-checkbox">TARDE</label>
                     </div>
                     <div class="form-group">
-                        <input  class="" type="radio" ng-model="turno" name="turno" value="noite" required>
+                        <input class="" type="radio"ng-model="turma.turno" name="turno" value="noite" required>
                         <label class="label-checkbox">NOITE</label>
                     </div>
                 </div>
@@ -164,10 +145,10 @@
             </div>
             <div class="row">
                 <div class="col-md-2 m-t-30 col-md-offset-7">
-                    <button class="btn-midnight" ng-click="adicionaDiaAulaTurma()">LIMPAR</button>
+                    <button class="btn-midnight" ng-click="testconsole()">LIMPAR</button>
                 </div>
                 <div class="col-md-3 m-t-30">
-                    <button onclick="openModal()" type="button" class="btn-alizarin" data-toggle="modal" data-target=".bs-example-modal-lg">ADICIONAR TURMA</button>
+                    <button ng-click="salvarTurma(turma)" type="button" class="btn-alizarin" data-toggle="modal" data-target=".bs-example-modal-lg">ADICIONAR TURMA</button>
                 </div>
             </div>
         </div>
