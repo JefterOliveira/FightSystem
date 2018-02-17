@@ -2,11 +2,13 @@ const db = require('../../config/database');
 const fs = require('fs')
 
 db.unidade.criar = function (req, res, next) {
-
-    let fileDirectory = 'public/uploads/logo' + req.body.nome + '.png';
-    let filesrc = 'uploads/logo' + req.body.nome + '.png';
-    salvarLogo(req.body.logo, fileDirectory)
-
+    let filesrc = null;
+    if(req.body.logo){
+        let fileDirectory = 'public/uploads/logo' + req.body.nome + '.png';
+        filesrc = 'uploads/logo' + req.body.nome + '.png';
+        salvarLogo(req.body.logo, fileDirectory)
+    }
+    
     db.unidade.create({
         nome: req.body.nome,
         responsavel: req.body.responsavel,
@@ -42,10 +44,12 @@ function salvarLogo(logoBase64, fileDirectory){
 }
 
 db.unidade.atualizar = function(req, res, next){
-
-    let fileDirectory = 'public/uploads/logo' + req.body.nome + '.png';
-    let filesrc = 'uploads/logo' + req.body.nome + '.png';
-    salvarLogo(req.body.logo, fileDirectory)
+    let filesrc = null;
+    if(req.body.logo){
+        let fileDirectory = 'public/uploads/logo' + req.body.nome + '.png';
+        filesrc = 'uploads/logo' + req.body.nome + '.png';
+        salvarLogo(req.body.logo, fileDirectory)
+    }
 
     db.unidade.update({
         nome: req.body.nome,

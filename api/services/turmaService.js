@@ -11,7 +11,7 @@ db.turma.criar = function (req, res, next) {
         cursoReferencia: req.body.curso,
         mensalidade: req.body.mensalidade,
         rateio: req.body.rateio,   
-        diaaulaturmas: req.body.diaAulaTurma
+        diaAulaTurmas: req.body.diaAulaTurma
     },
     {
         include: [ db.diaAulaTurma ]
@@ -33,15 +33,19 @@ db.turma.criar = function (req, res, next) {
     })
 }
 
-/*db.turma.obterTodos = function(req, res, next){
-    db.curso.findAll({
-        
+db.turma.obterTodos = function(req, res, next){
+    db.turma.findAll({
+        include:[
+           {model: db.curso},
+           {model: db.diaAulaTurma},
+           {model: db.aluno}
+        ]
     }).then(function(result){
         res.status(200).json(result)
     },function(error){
         res.status(500).json(error);
     })
-}*/
+}
 
 module.exports = db.turma;
 

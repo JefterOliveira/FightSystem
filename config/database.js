@@ -1,7 +1,7 @@
 'use strict'
 
 const Sequelize = require('sequelize');
-const conexao = new Sequelize('fightsystem', 'root', 'root', {
+const conexao = new Sequelize('fightsystem', 'root', 'maribibi', {
   host: 'localhost',
   dialect: 'mysql',
 });

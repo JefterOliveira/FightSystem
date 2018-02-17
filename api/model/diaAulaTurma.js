@@ -1,7 +1,7 @@
 'use strict'
 
 module.exports = (conexao, Sequelize) => {
-    const DiaAulaTurma = conexao.define('diaaulaturma', {
+    const DiaAulaTurma = conexao.define('diaAulaTurma', {
     id: {
         type: Sequelize.INTEGER, primaryKey: true, autoIncrement: true, allowNull: false
     },

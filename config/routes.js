@@ -24,6 +24,7 @@ module.exports = function(server){
   router.route('/unidade/:id').delete(unidadeService.inativarUnidade)
   //rotas de turma
   router.route('/turma').post(turmaService.criar)
+  router.route('/turma').get(turmaService.obterTodos)
   // rotas de aluno
   router.route('/aluno').post(alunoService.criar)
   router.route('/aluno').put(alunoService.atualizar)

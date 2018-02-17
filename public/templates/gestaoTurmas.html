@@ -1,0 +1,189 @@
+<div class="row">
+    <div class="col-md-12">
+      <div class="title-screen">
+        <h3>GESTÃO DE TURMA</h3>
+      </div>
+    </div>
+  </div>
+  <div class="row topo-gestao m-t-30">
+    <div class="col-md-2">
+      <div class="card gestao">
+        <h1>{{::qtdTurmas}}</h1>
+        <p>TOTAL</p>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="card gestao">
+        <h1>{{::qtdUnidades}}</h1>
+        <p>UNIDADES</p>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="card gestao">
+        <h1>{{::qtdAlunos}}</h1>
+        <p>ALUNOS</p>
+      </div>
+    </div>
+    <div class="col-md-2 col-md-offset-4">
+      <div class="box-add-unidade">
+        <div class="btn-add-unidade pointer">
+          <i ng-click="irNovaTurma()" class="material-icons">add</i>
+        </div>
+        <p>NOVA TURMA</p>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 no-padding-x m-t-30">
+      <table class="table table-hover">
+        <thead>
+          <tr class="topo-table">
+            <th class="border-top-left">
+              <p>Unidade</p>
+            </th>
+            <th>
+              <p>Responsável</p>
+            </th>
+            <th>
+              <p>Telefone</p>
+            </th>
+            <th>
+              <p>Alunos</p>
+            </th>
+            <th>
+              <p>Turma ID</p>
+            </th>
+            <th class="border-top-right">
+              <p>Opções</p>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="turma in turmas track by turma.id">
+            <td>
+              <img class="img-list" src={{::getUnidadeLogo(unidade.logo)}}>
+              <p>{{::turma.unidade.nome}}</p>
+            </td>
+            <td>
+              <p>{{::turma.unidade.responsavel}}</p>
+            </td>
+            <td>
+              <p>{{::turma.unidade.telefone}}</p>
+            </td>
+            <td>
+              <p>{{::getQuantidadeAlunosPorUnidade(unidade.turmas)}}</p>
+            </td>
+            <td>
+              <p>{{::turma.id}}</p>
+            </td>
+            <td>
+              <button class="dropdown-toggle btn-opcoes" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="material-icons">more_horiz</i>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-right">
+                <li>
+                  <button class="btn-opcoes btn-pophover" ng-click="abrirModalDetalheUnidade(unidade)">
+                    <i class="material-icons">assignment</i>
+                    <p>Abrir ficha da unidade</p>
+                  </button>
+                </li>
+                <li>
+                  <button class="btn-opcoes btn-pophover" ng-click="abrirModalConfirmaInativacao(unidade)" ng-if="unidade.ativo">
+                    <i class="material-icons">cancel</i>
+                    <p>Inativar unidade</p>
+                  </button>
+                  <button class="btn-opcoes btn-pophover" ng-if="!unidade.ativo">
+                    <i class="material-icons">cancel</i>
+                    <p>Ativar unidade</p>
+                  </button>
+                </li>
+                <li>
+                  <button class="btn-opcoes btn-pophover">
+                    <i class="material-icons">add_circle</i>
+                    <p>Adicionar turma nesta unidade</p>
+                  </button>
+                </li>
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+  <!-- ______________________________ MODAIS __________________________________ -->
+  
+  <!-- ______________________________ MODAL1 _________________-________________ -->
+  <div class="modal fade" id="modalDetalheUnidade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" style="display: none;">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content alignCenter">
+        <div class="modal-header">
+          <h4>StudioFuncionalFit</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-12">
+              <p class="alignRight">
+                Endereço :
+                <br> E-mail :
+              </p>
+              <p class="alignLeft">
+                {{unidadeSelecionada.endereco}}, {{unidadeSelecionada.complemento}} - {{unidadeSelecionada.cidade}} - {{unidadeSelecionada.cidade}}
+                <br> {{unidadeSelecionada.email}}
+              </p>
+            </div>
+          </div>
+          <hr class="divisor-horizontal">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="">
+                <button class="card btn-opc-unidade" ng-click="editarUnidade()" data-dismiss="modal"> 
+                  Editar unidade
+                </button>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="">
+                <button class="card btn-opc-unidade">
+                  Ver turmas
+                </button>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="">
+                <button class="card btn-opc-unidade">
+                  Ver alunos
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ______________________________ MODAL2 _________________-________________ -->
+  <div class="modal fade bs-example-modal-lg" id="modalConfirmaInativacao" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+    style="display: none;">
+    <div class="modal-dialog modal-sm" role="document">
+      <div class="modal-content t-c card">
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+            <h4>TEM CERTEZA QUE DESEJA
+              <br>
+              <strong>INATIVAR</strong> ESSA UNIDADE</h4>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-5 m-t-20 col-md-offset-1">
+            <button type="button" data-dismiss="modal" aria-label="Close" class="btn-cancel">CANCELAR</button>
+          </div>
+          <div class="col-md-5 m-t-20">
+            <button class="btn-acept" ng-click="inativarUnidade()">ACEITAR</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

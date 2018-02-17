@@ -29,6 +29,12 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', function($
       controller: "novaTurmaCtrl"
     })
 
+    .state('gestaoturmas', {
+      url: "/gestaoturmas",   
+      templateUrl: "templates/gestaoTurmas.html",
+      controller: "gestaoTurmasCtrl"
+    })
+
     $urlRouterProvider.otherwise('/home')
   }
 ])

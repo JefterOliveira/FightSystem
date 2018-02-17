@@ -44,6 +44,12 @@ function sideMenuController($scope, $state){
         esconderSideMenu()
         $state.go('novaturma')
     }
+
+    $scope.irGestaoTurmas = function(){
+        esconderCircleMenu()
+        esconderSideMenu()
+        $state.go('gestaoturmas')
+    }
 }
 
 
