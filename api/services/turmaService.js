@@ -38,7 +38,8 @@ db.turma.obterTodos = function(req, res, next){
         include:[
            {model: db.curso},
            {model: db.diaAulaTurma},
-           {model: db.aluno}
+           {model: db.aluno},
+           {model: db.unidade}
         ]
     }).then(function(result){
         res.status(200).json(result)

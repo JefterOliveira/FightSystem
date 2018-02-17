@@ -2,70 +2,35 @@ angular.module('app').controller('gestaoTurmasCtrl',['$scope', '$state', 'apiSer
 
 function gestaoTurmasCtrl($scope, $state, apiService, apiConstantes){
     
-    $scope.unidades = [];
+    $scope.turmas = [];
     $scope.qtdTurmas = 0;
     $scope.qtdAlunos = 0;
+    $scope.qtdUnidades = 0;
+    let arrayUnidades = [];
     
-    function getUnidades(){
-        apiService.get(apiConstantes.baseUrlAPI + apiConstantes.unidade).then(function(result){
+    function getTurmas(){
+        apiService.get(apiConstantes.baseUrlAPI + apiConstantes.turma).then(function(result){
             console.log(result)
-            $scope.unidades = result.data;
+            $scope.turmas = result.data;
             calculaDadosDashboard(result.data);
         }, function(error){
             console.log(error)
         })
     }
-    getUnidades();
+    getTurmas();
 
-    function calculaDadosDashboard(arrayUnidades){
-        $scope.qtdUnidades = arrayUnidades.length;
-        arrayUnidades.forEach(unidade => {
-            $scope.qtdTurmas += unidade.turmas.length
-            unidade.turmas.forEach(turma =>{
-                $scope.qtdAlunos += turma.alunos.length
-            })
+    function calculaDadosDashboard(arrayTurmas){
+        $scope.qtdTurmas = arrayTurmas.length;
+        arrayTurmas.forEach(turma => {
+            arrayUnidades.push(turma.unidade)
+            $scope.qtdAlunos += turma.alunos.length
         });
+        let arrayUnidadesUnicas = [...new Set(arrayUnidades.map(item => item.id))];
+        $scope.qtdUnidades = arrayUnidadesUnicas.length
+        //console.log($scope.qtdTurmas,  $scope.qtdUnidades, $scope.qtdAlunos)
     }
 
-    $scope.getQuantidadeAlunosPorUnidade = function(turmas){
-        let qtdAlunos = 0;
-        turmas.forEach(turma => {
-            qtdAlunos += turma.alunos.length
-        })
-        return qtdAlunos;
-    }
-
-    $scope.abrirModalDetalheUnidade = function(unidade){
-        $scope.unidadeSelecionada = unidade;
-        $("#modalDetalheUnidade").modal('show');
-    }
-
-    $scope.abrirModalConfirmaInativacao = function(unidade){
-        $scope.unidadeSelecionada = unidade;
-        $("#modalConfirmaInativacao").modal('show');
-    }
-
-    $scope.inativarUnidade = function(){
-        $('#modalConfirmaInativacao').modal('hide')
-        $('.modal-backdrop').remove()
-        apiService.delete(apiConstantes.baseUrlAPI + apiConstantes.unidade, $scope.unidadeSelecionada.id).then(function(result){
-            console.log(result)
-        }, function(error){
-            console.log(error)
-        })
-    }
-
-    $scope.getUnidadeLogo = function(logosrc){
-        return logosrc + '?' + new Date().getTime();
-    }
-
-    $scope.editarUnidade = function(){
-        $('#modalDetalheUnidade').modal('hide')
-        $('.modal-backdrop').remove()
-        $state.go('novaunidade', {unidade :  $scope.unidadeSelecionada})
-    }
-
-    $scope.irNovaUnidade = function(){
-        $state.go('novaunidade')
+    $scope.irNovaTurma = function(){
+        $state.go('novaturma')
     }
 }
