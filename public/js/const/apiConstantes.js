@@ -11,12 +11,14 @@ angular.module('app').constant("apiConstantes", {
 
     //rotas de unidade
     unidade: "/unidade",
+    ativarUnidade: "/ativarunidade",
     
     //rotas de aluno
     aluno: "/aluno",
     
     //rotas de turma
     turma: "/turma",
+    ativarTurma: "/ativarturma",
 
     //rotas de curso
     curso: "/curso"

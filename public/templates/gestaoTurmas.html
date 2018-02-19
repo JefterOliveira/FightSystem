@@ -82,25 +82,21 @@
               </button>
               <ul class="dropdown-menu dropdown-menu-right">
                 <li>
-                  <button class="btn-opcoes btn-pophover" ng-click="abrirModalDetalheUnidade(unidade)">
+                  <button class="btn-opcoes btn-pophover" ng-click="">
                     <i class="material-icons">assignment</i>
-                    <p>Abrir ficha da unidade</p>
+                    <p>Abrir ficha da turma</p>
                   </button>
                 </li>
                 <li>
-                  <button class="btn-opcoes btn-pophover" ng-click="abrirModalConfirmaInativacao(unidade)" ng-if="unidade.ativo">
+                  <button class="btn-opcoes btn-pophover" ng-click="abrirModalConfirmaInativacao(turma)">
                     <i class="material-icons">cancel</i>
-                    <p>Inativar unidade</p>
-                  </button>
-                  <button class="btn-opcoes btn-pophover" ng-if="!unidade.ativo">
-                    <i class="material-icons">cancel</i>
-                    <p>Ativar unidade</p>
+                    <p ng-if="turma.ativo">Inativar turma</p> <p ng-if="!turma.ativo">Ativar turma</p>
                   </button>
                 </li>
                 <li>
                   <button class="btn-opcoes btn-pophover">
                     <i class="material-icons">add_circle</i>
-                    <p>Adicionar turma nesta unidade</p>
+                    <p>Adicionar aluno nesta turma</p>
                   </button>
                 </li>
               </ul>
@@ -114,7 +110,7 @@
   <!-- ______________________________ MODAIS __________________________________ -->
   
   <!-- ______________________________ MODAL1 _________________-________________ -->
-  <div class="modal fade" id="modalDetalheUnidade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" style="display: none;">
+  <div class="modal fade" id="modalDetalheTurma" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" style="display: none;">
     <div class="modal-dialog" role="document">
       <div class="modal-content alignCenter">
         <div class="modal-header">
@@ -140,22 +136,22 @@
           <div class="row">
             <div class="col-md-4">
               <div class="">
-                <button class="card btn-opc-unidade" ng-click="editarUnidade()" data-dismiss="modal"> 
-                  Editar unidade
+                <button class="card btn-opc-unidade" ng-click="editarTurma()" data-dismiss="modal"> 
+                  Abrir ficha da turma
                 </button>
               </div>
             </div>
             <div class="col-md-4">
               <div class="">
                 <button class="card btn-opc-unidade">
-                  Ver turmas
+                  Intativar turma
                 </button>
               </div>
             </div>
             <div class="col-md-4">
               <div class="">
                 <button class="card btn-opc-unidade">
-                  Ver alunos
+                  Adicionar aluno nesta turma
                 </button>
               </div>
             </div>
@@ -173,15 +169,18 @@
           <div class="col-md-10 col-md-offset-1">
             <h4>TEM CERTEZA QUE DESEJA
               <br>
-              <strong>INATIVAR</strong> ESSA UNIDADE</h4>
+              <strong ng-if="turmaSelecionada.ativo">INATIVAR</strong> <strong ng-if="!turmaSelecionada.ativo">AtTIVAR</strong> ESSA TURMA</h4>
           </div>
         </div>
         <div class="row">
           <div class="col-md-5 m-t-20 col-md-offset-1">
             <button type="button" data-dismiss="modal" aria-label="Close" class="btn-cancel">CANCELAR</button>
           </div>
-          <div class="col-md-5 m-t-20">
-            <button class="btn-acept" ng-click="inativarUnidade()">ACEITAR</button>
+          <div class="col-md-5 m-t-20" ng-if="turmaSelecionada.ativo" >
+            <button class="btn-acept" ng-click="inativarTurma()">ACEITAR</button>
+          </div>
+          <div class="col-md-5 m-t-20" ng-if="!turmaSelecionada.ativo">
+            <button class="btn-acept" ng-click="ativarTurma()">ACEITAR</button>
           </div>
         </div>
       </div>

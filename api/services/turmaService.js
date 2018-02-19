@@ -48,5 +48,60 @@ db.turma.obterTodos = function(req, res, next){
     })
 }
 
+db.turma.atualizar = function(req, res, next){
+    db.turma.update({
+
+
+    }, {
+        where: {
+            id: {
+                $eq: req.body.id
+            }
+        }
+    }
+    ).then(function(result){
+        res.status(200).json(result);
+    }, function(error){
+        res.status(500).json(error);
+    })
+}
+
+db.turma.inativarTurma = function(req, res, next){
+    db.turma.update(
+        {
+            ativo: false
+        },
+        {
+            where:{
+                id:{
+                    $eq: req.params.id
+                }
+            }
+        }    
+    ).then(function(result){
+        res.status(200).json(result)
+    }, function(error){
+        res.status(500).json(error);
+    })    
+}
+
+db.turma.ativarTurma = function(req, res, next){
+    db.turma.update(
+        {
+            ativo: true
+        },
+        {
+            where:{
+                id:{
+                    $eq: req.params.id
+                }
+            }
+        }    
+    ).then(function(result){
+        res.status(200).json(result)
+    }, function(error){
+        res.status(500).json(error);
+    })    
+}
 module.exports = db.turma;
 

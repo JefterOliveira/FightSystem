@@ -22,9 +22,13 @@ module.exports = function(server){
   router.route('/unidade').put(unidadeService.atualizar)
   router.route('/unidade').get(unidadeService.obterTodos)
   router.route('/unidade/:id').delete(unidadeService.inativarUnidade)
+  router.route('/ativarunidade/:id').get(unidadeService.ativarUnidade)
   //rotas de turma
   router.route('/turma').post(turmaService.criar)
   router.route('/turma').get(turmaService.obterTodos)
+  router.route('/turma').put(turmaService.atualizar)
+  router.route('/turma/:id').delete(turmaService.inativarTurma)
+  router.route('/ativarturma/:id').get(turmaService.ativarTurma)
   // rotas de aluno
   router.route('/aluno').post(alunoService.criar)
   router.route('/aluno').put(alunoService.atualizar)

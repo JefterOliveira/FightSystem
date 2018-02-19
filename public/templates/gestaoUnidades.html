@@ -88,13 +88,9 @@
                 </button>
               </li>
               <li>
-                <button class="btn-opcoes btn-pophover" ng-click="abrirModalConfirmaInativacao(unidade)" ng-if="unidade.ativo">
+                <button class="btn-opcoes btn-pophover" ng-click="abrirModalConfirmaInativacao(unidade)" >
                   <i class="material-icons">cancel</i>
-                  <p>Inativar unidade</p>
-                </button>
-                <button class="btn-opcoes btn-pophover" ng-if="!unidade.ativo">
-                  <i class="material-icons">cancel</i>
-                  <p>Ativar unidade</p>
+                  <p ng-if="unidade.ativo" >Inativar unidade</p> <p ng-if="!unidade.ativo">Ativar unidade</p>
                 </button>
               </li>
               <li>
@@ -173,15 +169,18 @@
         <div class="col-md-10 col-md-offset-1">
           <h4>TEM CERTEZA QUE DESEJA
             <br>
-            <strong>INATIVAR</strong> ESSA UNIDADE</h4>
+            <strong ng-if="unidadeSelecionada.ativo">INATIVAR</strong> <strong ng-if="!unidadeSelecionada.ativo">ATIVAR </strong>ESSA UNIDADE</h4>
         </div>
       </div>
       <div class="row">
         <div class="col-md-5 m-t-20 col-md-offset-1">
           <button type="button" data-dismiss="modal" aria-label="Close" class="btn-cancel">CANCELAR</button>
         </div>
-        <div class="col-md-5 m-t-20">
+        <div class="col-md-5 m-t-20" ng-if="unidadeSelecionada.ativo">
           <button class="btn-acept" ng-click="inativarUnidade()">ACEITAR</button>
+        </div>
+        <div class="col-md-5 m-t-20" ng-if="!unidadeSelecionada.ativo">
+          <button class="btn-acept" ng-click="ativarUnidade()">ACEITAR</button>
         </div>
       </div>
     </div>

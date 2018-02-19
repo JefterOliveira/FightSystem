@@ -50,6 +50,18 @@ function gestaoUnidadesCtrl($scope, $state, apiService, apiConstantes){
         $('.modal-backdrop').remove()
         apiService.delete(apiConstantes.baseUrlAPI + apiConstantes.unidade, $scope.unidadeSelecionada.id).then(function(result){
             console.log(result)
+            $scope.unidadeSelecionada.ativo = false;
+        }, function(error){
+            console.log(error)
+        })
+    }
+
+    $scope.ativarUnidade = function(){
+        $('#modalConfirmaInativacao').modal('hide')
+        $('.modal-backdrop').remove()
+        apiService.get(apiConstantes.baseUrlAPI + apiConstantes.ativarUnidade, $scope.unidadeSelecionada.id).then(function(result){
+            console.log(result)
+            $scope.unidadeSelecionada.ativo = true;
         }, function(error){
             console.log(error)
         })
