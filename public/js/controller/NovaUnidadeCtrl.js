@@ -18,7 +18,6 @@ function novaUnidadeCtrl($scope, $state, apiService, apiConstantes){
         
 
     $scope.limparForm = function(){
-        console.log($scope.unidade);
         $scope.unidade = {};
         $('#imglogo')
             .attr('src', "#")

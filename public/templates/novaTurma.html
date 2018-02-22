@@ -10,7 +10,7 @@
         <div class="row">
             <div class="col-md-6 m-t-135">
                 <div class="form-group m-t-30">
-                    <select class="form-control circle-input" ng-model="turma.unidade" name="unidade" ng-options="unidade.id as unidade.nome for unidade in unidades"
+                    <select class="form-control circle-input" ng-model="turma.unidade" name="unidade" ng-options="unidade.id as unidade.nome for unidade in unidades track by unidade.id"
                         required></select>
                 </div>
             </div>
@@ -34,7 +34,7 @@
             </div>
             <div class="col-md-6">
                 <div class="form-group">
-                    <select class="form-control circle-input" ng-model="turma.curso" name="curso" ng-options="curso.id as curso.nome for curso in cursos"
+                    <select class="form-control circle-input" ng-model="turma.curso" name="curso" ng-options="curso.id as curso.nome for curso in cursos track by curso.id"
                         required></select>
                 </div>
             </div>
@@ -148,7 +148,8 @@
                     <button class="btn-midnight" ng-click="testconsole()">LIMPAR</button>
                 </div>
                 <div class="col-md-3 m-t-30">
-                    <button ng-click="salvarTurma(turma)" type="button" class="btn-alizarin" data-toggle="modal" data-target=".bs-example-modal-lg">ADICIONAR TURMA</button>
+                    <button ng-click="salvarTurma(turma)" type="button" class="btn-alizarin" data-toggle="modal" data-target=".bs-example-modal-lg" ng-if="!turma.id">ADICIONAR TURMA</button>
+                    <button ng-click="alterarTurma(turma)" type="button" class="btn-alizarin" data-toggle="modal" data-target=".bs-example-modal-lg" ng-if="turma.id">ALTERAR TURMA</button>
                 </div>
             </div>
         </div>
@@ -159,10 +160,10 @@
 <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content card">
-            <h3>PARABÉNS, SUA NOVA TURMA FOI CRIADA COM SUCESSO!</h3>
+            <h3>PARABÉNS! A SUA TURMA FOI SALVA COM SUCESSO!</h3>
             <div class="row">
                 <div class="col-md-5 col-md-offset-1">
-                    <button class="btn-midnight">ADICIONAR NOVA TURMA</button>
+                    <button class="btn-midnight" ng-click="fecharModal()">ADICIONAR NOVA TURMA</button>
                 </div>
                 <div class="col-md-5">
                     <button class="btn-midnight">VER DADOS FINANCEIROS</button>

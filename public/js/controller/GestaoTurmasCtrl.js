@@ -58,6 +58,32 @@ function gestaoTurmasCtrl($scope, $state, apiService, apiConstantes){
         })
     }
 
+    $scope.abrirModalDetalheTurma = function(turma){
+        $scope.turmaSelecionada = turma;
+        $("#modalDetalheTurma").modal('show');
+    }
+
+    $scope.getDiasDaSemanaFormatado = function(arrayDiasAula){
+        let msgDiasAulas = ""
+        if(arrayDiasAula){
+            arrayDiasAula.forEach( (item, index, array) => {
+                if(index === 0)
+                    msgDiasAulas += diasSemanaEnum.properties[item.diaSemana].labelModal
+                else if(index === array.length -1)    
+                    msgDiasAulas += " e " + diasSemanaEnum.properties[item.diaSemana].labelModal
+                else
+                    msgDiasAulas += ", " + diasSemanaEnum.properties[item.diaSemana].labelModal    
+            })
+        }   
+        return msgDiasAulas   
+    }
+
+    $scope.editarTurma = function(){
+        $('#modalDetalheTurma').modal('hide')
+        $('.modal-backdrop').remove()
+        $state.go('novaturma', {turma :  $scope.turmaSelecionada})
+    }
+
     $scope.irNovaTurma = function(){
         $state.go('novaturma')
     }

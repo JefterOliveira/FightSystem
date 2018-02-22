@@ -2,14 +2,22 @@ angular.module('app').controller('novaTurmaCtrl',['$scope', '$state', 'apiServic
 
 function novaTurmaCtrl($scope, $state, apiService, apiConstantes){
     
+    if($state.params.turma){
+        $scope.turma = $state.params.turma
+        $scope.turma.diaAulaTurmaApoio = prepararTurmaDiaAula2($scope.turma.diaAulaTurmas)
+        console.log($scope.turma)
+    }else{
+        $scope.turma = {};
+        $scope.turma.diaAulaTurma = [];
+        $scope.turma.diaAulaTurmaApoio = [];
+    }
+
     $scope.unidades = [];
     $scope.cursos = [];
-    $scope.turma = {};
-    $scope.turma.diaAulaTurma = [];
-    $scope.turma.diaAulaTurmaApoio = [];
 
-    $scope.testconsole = function(){
-        console.log($scope.turma)
+    $scope.fecharModal = function(){ 
+        $("#modal").modal('hide');
+        $('.modal-backdrop').remove()
     }
 
     $scope.compararDiaSemana = function(obj1, obj2) {
@@ -48,10 +56,25 @@ function novaTurmaCtrl($scope, $state, apiService, apiConstantes){
         return array.map(value => ({diaSemana: value}))
     }
 
+    function prepararTurmaDiaAula2(array){
+        console.log(array)
+        console.log(array.map(item => item => item.diaSemana))
+        return array.map(item => item.diaSemana)
+    }
+
     $scope.salvarTurma = function(turma){
         $scope.turma.diaAulaTurma = prepararTurmaDiaAula($scope.turma.diaAulaTurmaApoio)
         apiService.post(apiConstantes.baseUrlAPI + apiConstantes.turma, turma).then(function(result){
-            console.log(result)
+            $scope.turma = {}
+        }, function(error){
+            console.log(error)
+        })
+    }
+
+    $scope.alterarTurma = function(turma){
+        $scope.turma.diaAulaTurma = prepararTurmaDiaAula($scope.turma.diaAulaTurmaApoio)
+        apiService.put(apiConstantes.baseUrlAPI + apiConstantes.turma, turma).then(function(result){
+            $scope.turma = {}
         }, function(error){
             console.log(error)
         })
