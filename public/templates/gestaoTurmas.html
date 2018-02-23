@@ -152,10 +152,17 @@
                 </button>
               </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4" ng-if="turmaSelecionada.ativo">
               <div class="">
-                <button class="card btn-opc-unidade">
+                <button class="card btn-opc-unidade" ng-click="abrirModalConfirmaInativacao(turmaSelecionada)">
                   Intativar turma
+                </button>
+              </div>
+            </div>
+            <div class="col-md-4" ng-if="!turmaSelecionada.ativo">
+              <div class="">
+                <button class="card btn-opc-unidade" ng-click="abrirModalConfirmaInativacao(turmaSelecionada)">
+                  Ativar turma
                 </button>
               </div>
             </div>

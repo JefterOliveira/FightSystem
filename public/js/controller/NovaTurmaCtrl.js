@@ -15,10 +15,10 @@ function novaTurmaCtrl($scope, $state, apiService, apiConstantes){
     $scope.unidades = [];
     $scope.cursos = [];
 
-    $scope.fecharModal = function(){ 
+    /*$scope.fecharModal = function(){ 
         $("#modal").modal('hide');
         $('.modal-backdrop').remove()
-    }
+    }*/
 
     $scope.compararDiaSemana = function(obj1, obj2) {
         return obj1 === obj2;

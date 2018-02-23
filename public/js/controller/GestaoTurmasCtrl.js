@@ -32,6 +32,7 @@ function gestaoTurmasCtrl($scope, $state, apiService, apiConstantes){
     }
 
     $scope.abrirModalConfirmaInativacao = function(turma){
+        $("#modalDetalheTurma").modal('hide');
         $scope.turmaSelecionada = turma;
         $("#modalConfirmaInativacao").modal('show');
     }

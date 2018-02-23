@@ -11,7 +11,9 @@
             <div class="col-md-6 m-t-135">
                 <div class="form-group m-t-30">
                     <select class="form-control circle-input" ng-model="turma.unidade" name="unidade" ng-options="unidade.id as unidade.nome for unidade in unidades track by unidade.id"
-                        required></select>
+                        required>
+                        <option value="" selected disabled>UNIDADE</option>
+                    </select>
                 </div>
             </div>
             <div class="col-md-6 m-t-135">
@@ -35,7 +37,9 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <select class="form-control circle-input" ng-model="turma.curso" name="curso" ng-options="curso.id as curso.nome for curso in cursos track by curso.id"
-                        required></select>
+                        required>
+                        <option value="" selected disabled>CURSO</option>
+                    </select>
                 </div>
             </div>
         </div>
@@ -163,7 +167,7 @@
             <h3>PARABÉNS! A SUA TURMA FOI SALVA COM SUCESSO!</h3>
             <div class="row">
                 <div class="col-md-5 col-md-offset-1">
-                    <button class="btn-midnight" ng-click="fecharModal()">ADICIONAR NOVA TURMA</button>
+                    <button class="btn-midnight" data-dismiss="modal">ADICIONAR NOVA TURMA</button>
                 </div>
                 <div class="col-md-5">
                     <button class="btn-midnight">VER DADOS FINANCEIROS</button>

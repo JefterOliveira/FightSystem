@@ -49,23 +49,78 @@ db.turma.obterTodos = function(req, res, next){
 }
 
 db.turma.atualizar = function(req, res, next){
-    db.turma.update({
-
-
-    }, {
-        where: {
-            id: {
-                $eq: req.body.id
-            }
+    db.diaAulaTurma.destroy({
+        where:{
+            turmaReferencia: req.body.id
         }
-    }
-    ).then(function(result){
-        res.status(200).json(result);
+    }).then(function(result){
+        Promise.all(req.body.diaAulaTurma.map(obj => db.diaAulaTurma.create({diaSemana: obj.diaSemana, turmaReferencia: req.body.id})))
+            .then(function(response){
+                db.turma.update({
+                    professor: req.body.professor,
+                    turno: req.body.turno,
+                    horaInicio: req.body.horaInicio,
+                    horaFim: req.body.horaFim,
+                    unidadeReferencia: req.body.unidade.id,
+                    cursoReferencia: req.body.curso.id,
+                    mensalidade: req.body.mensalidade,
+                    rateio: req.body.rateio,  
+                    diaAulaTurmas: req.body.diaAulaTurma
+                    },
+                    {
+                        where: {
+                            id: {
+                                $eq: req.body.id
+                            }
+                        }
+                    }    
+                ).then(function(turma){
+                    console.log(turma)
+                    res.status(200).json(turma);
+                }, function(error){
+                    console.log(error)
+                    res.status(500).json(error);
+                })
+            }, function(error){
+                console.log(error)
+                res.status(500).json(error);
+            })
+        
     }, function(error){
+        console.log(error)
         res.status(500).json(error);
     })
 }
-
+/*
+db.turma.update({
+            professor: req.body.professor,
+            turno: req.body.turno,
+            horaInicio: req.body.horaInicio,
+            horaFim: req.body.horaFim,
+            unidadeReferencia: req.body.unidade.id,
+            cursoReferencia: req.body.curso.id,
+            mensalidade: req.body.mensalidade,
+            rateio: req.body.rateio,  
+            diaAulaTurmas: req.body.diaAulaTurma
+            },
+            {
+                include: [ db.diaAulaTurma ]
+            },
+            {
+                where: {
+                    id: {
+                        $eq: req.body.id
+                    }
+                }
+            }    
+        ).then(function(turma){
+            console.log(turma)
+            res.status(200).json(turma);
+        }, function(error){
+            console.log(error)
+            res.status(500).json(error);
+        })
+*/
 db.turma.inativarTurma = function(req, res, next){
     db.turma.update(
         {
