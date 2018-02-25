@@ -1,0 +1,416 @@
+<div class="col-md-10 col-md-offset-1">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="title-screen">
+                <h3>GESTÃO DE ALUNOS</h3>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 m-t-30">
+            <button class="btn-white" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">JÁ PRATICOU ARTE MARCIAL?
+                <i class="material-icons">keyboard_arrow_right</i>
+            </button>
+            <!-- modal dados marciais -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4>DADOS MARCIAIS</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-md-10 col-md-offset-1">
+                                    <div class="form-group">
+                                        <input class="form-control circle-input" type="text" name="nome" placeholder="QUAL ARTE TREINOU POR MAIS TEMPO?">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-10 col-md-offset-1">
+                                    <div class="form-group">
+                                        <input class="form-control circle-input" type="text" name="nome" placeholder="QUANTO TEMPO?">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-10 col-md-offset-1">
+                                    <div class="form-group">
+                                        <input class="form-control circle-input" type="text" name="nome" placeholder="SUA GRADUAÇÃO?">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 col-md-offset-1">
+                                    <label class="label-modal">JÁ DEU AULAS?</label>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="radio">
+                                        <input class="radio-modal" type="radio" name="optionsRadios" id="optionRadios1" value="option1" checked>
+                                        <label>SIM</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="radio">
+                                        <input class="radio-modal" type="radio" name="optionsRadios" id="optionRadios2" value="option2">
+                                        <label>NÃO</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row m-t-10">
+                                <div class="col-md-6 col-md-offset-1">
+                                    <label class="label-modal">EQUIVALÊNCIA?</label>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="radio">
+                                        <input class="radio-modal" type="radio" name="optionsRadios" id="optionRadios1" value="option1" checked>
+                                        <label>SIM</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="radio">
+                                        <input class="radio-modal" type="radio" name="optionsRadios" id="optionRadios2" value="option2">
+                                        <label>NÃO</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-10 col-md-offset-1 m-t-20">
+                                    <div id="uploadFile" class="upload-group">
+                                        <input id="file-input" class="input-none" type="file" name="file">
+                                        <label class="btn-upload" for="file-input">ANEXAR DOCS</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-header">
+                                <h4>PESQUISA</h4>
+                            </div>
+                            <div class="row m-t-20">
+                                <div class="col-md-6 col-md-offset-1">
+                                    <label class="label-modal">JÁ CONHECIA?</label>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="radio">
+                                        <input class="radio-modal" type="radio" name="optionsRadios" id="optionRadios1" value="option1" checked>
+                                        <label>SIM</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="radio">
+                                        <input class="radio-modal" type="radio" name="optionsRadios" id="optionRadios2" value="option2">
+                                        <label>NÃO</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-10 m-t-10 col-md-offset-1">
+                                    <div class="form-group">
+                                        <input class="form-control circle-input" type="text" name="nome" placeholder="COMO NOS CONHECEU?">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="col-md-3">
+                                        <button type="button" class="btn-midnight" data-dismiss="modal">FECHAR</button>
+                                    </div>
+                                    <div class="col-md-5 col-md-offset-4">
+                                        <button type="button" class="btn-alizarin">FINALIZAR</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 m-t-30">
+            <h4 class="title-screen">DADOS PESSOAIS</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group m-t-10">
+                <input class="form-control circle-input" type="text" name="nome" placeholder="NOME" ng-model="aluno.nome" required>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <select class="form-control circle-input" ng-model="aluno.categoria" name="categoria" ng-options="categoria.id as categoria.nome for categoria in categorias track by categoria.id"
+                    required>
+                    <option value="" selected disabled>CATEGORIA</option>
+                </select>
+            </div>
+        </div>
+        <!--<div class="col-md-6">
+            <div class="form-group m-t-10">
+                <select class="form-control circle-input">
+                    <option>CATEGORIA</option>
+                    <option>UNIDADE</option>
+                    <option>UNIDADE</option>
+                    <option>UNIDADE</option>
+                </select>
+            </div>
+        </div>-->
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <input class="form-control circle-input" type="text" name="nomepai" placeholder="NOME DO PAI" ng-model="aluno.nomePai" required>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <input class="form-control circle-input" type="text" name="nomemae" placeholder="NOME DA MÃE" ng-model="aluno.nomeMae" required>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <input class="form-control circle-input" type="date" name="nome" placeholder="DATA DE NASCIMENTO" ng-model="aluno.dataNascimento" required>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <label class="label-checkbox title">SEXO</label>
+            <div class="form-group check-box">
+                <input class="checkbox" type="radio" name="sexo" value="masculino" ng-model="aluno.sexo" required>
+                <label class="label-checkbox">MASCULINO </label>
+            </div>
+            <div class="form-group check-box">
+                <input class="checkbox" type="radio" name="sexo" value="feminimo" ng-model="aluno.sexo" required>
+                <label class="label-checkbox">FEMININO</label>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <input class="form-control circle-input" type="text" name="identidade" placeholder="IDENTIDADE" ng-model="aluno.identidade" required>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="form-group">
+                <input class="form-control circle-input" type="text" name="orgao" placeholder="ORGÃO" ng-model="aluno.orgamEmissor" required>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <input class="form-control circle-input" type="text" name="cpf" placeholder="CPF" ng-model="aluno.cpf" required>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 m-t-30">
+            <h4 class="title-screen">DADOS DE CONTATO</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 m-t-10">
+            <div class="form-group">
+                <input class="form-control circle-input" type="text" name="endereco" placeholder="ENDEREÇO" ng-model="aluno.endereco" required>
+            </div>
+        </div>
+        <div class="col-md-6 m-t-10">
+            <div class="form-group">
+                <input class="form-control circle-input" type="text" name="complemento" placeholder="COMPLEMENTO" ng-model="aluno.complemento" required>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 m-t-10">
+            <div class="form-group">
+                <input class="form-control circle-input" type="text" name="bairro" placeholder="BAIRRO" ng-model="aluno.bairro" required>
+            </div>
+        </div>
+        <div class="col-md-6 m-t-10">
+            <div class="form-group">
+                <input class="form-control circle-input" type="text" name="cidade" placeholder="CIDADE" ng-model="aluno.cidade" required>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                <input class="form-control circle-input" type="text" name="cep" placeholder="CEP" ng-model="aluno.cep" required>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <input class="form-control circle-input" type="text" name="estado" placeholder="ESTADO" ng-model="aluno.estado" required>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <input class="form-control circle-input" type="mail" name="email" placeholder="EMAIL" ng-model="aluno.email" required>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                <input class="form-control circle-input" type="text" name="celular" placeholder="TELEFONE CELULAR" ng-model="aluno.celular" required>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <input class="form-control circle-input" type="text" name="telefonere-sidencial" placeholder="TELEFONE RESIDENCIAL" ng-model="aluno.telefoneResidencial" >
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <input class="form-control circle-input" type="text" name="telefone-recorrente" placeholder="TELEFONE RECORRENTE" ng-model="aluno.telefoneRecorrente" >
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <input class="form-control circle-input" type="text" name="telefone-complementar" placeholder="TELEFONE COMPLEMENTAR" ng-model="aluno.telefoneComplementar" >
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 m-t-30">
+            <h4 class="title-screen">DADOS DE SAÚDE</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                <input class="form-control circle-input" type="text" name="peso" placeholder="PESO" ng-model="aluno.peso" >
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <input class="form-control circle-input" type="text" name="altura" placeholder="ALTURA" ng-model="aluno.altura" >
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div id="uploadFile" class="upload-group">
+                <input id="file-input" class="input-none" type="file" name="file">
+                <label class="btn-upload" for="file-input">ANEXAR DOCS</label>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                <input class="form-control circle-input" type="text" name="tipo-sanguineo" placeholder="SANGUE/RH" ng-model="aluno.tipoSanquineo" >
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <input class="form-control circle-input" type="text" name="pa-media" placeholder="P.A MÉDIA" ng-model="aluno.paMedia" >
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label class="label-checkbox">SEM ATESTADO?</label>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <input class="form-control circle-input" type="text" name="quando-pode-entregar" placeholder="QUANDO PODE ENTREGAR?" ng-model="aluno.quandoPodeEntregar" >
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label class="label-checkbox">USA MEDICAÇÃO?</label>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <input class="form-control circle-input" type="text" name="medicacao" placeholder="QUAL?" ng-model="aluno.medicacao" >
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <input class="form-control circle-input" type="text" name="contato-emergencia" placeholder="EM CASO DE ACIDENTE, AVISAR À" ng-model="aluno.contatoEmergencia">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label class="label-checkbox">TEM ALGUMA FRATURA?</label>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <input class="form-control circle-input" type="text" name="fraturas" placeholder="ONDE?" ng-model="aluno.fraturas">
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label class="label-checkbox">POSSUI PLANO DE SAÚDE?</label>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <input class="form-control circle-input" type="text" name="plano-saude" placeholder="QUAL?" ng-model="aluno.planoSaude">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 m-t-10">
+            <div class="form-group">
+                <input class="form-control circle-input" type="text" name="telefone-contato-emergencia-1" placeholder="TELEFONE 01" ng-model="aluno.telefoneContatoEmergencia1">
+            </div>
+        </div>
+        <div class="col-md-6 m-t-10">
+            <div class="form-group">
+                <input class="form-control circle-input" type="text" name="telefone-contato-emergencia-2" placeholder="TELEFONE 02" ng-model="aluno.telefoneContatoEmergencia2">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 m-t-30">
+            <h4 class="title-screen">DADOS FINANCEIROS</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 m-t-10">
+            <div class="form-group">
+                <label class="label-checkbox">SE BOLSISTA, QUAL É O DESCONTO?</label>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <select class="form-control circle-input" ng-model="aluno.desconto" name="desconto" ng-options="desconto.valor as desconto.label for desconto in descontos track by desconto.valor"
+                    required>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2 m-t-30 col-md-offset-7 col-xs-3">
+            <button class="btn-midnight">LIMPAR</button>
+        </div>
+        <div class="col-md-3 m-t-30 col-xs-5">
+            <button onclick="openModal()" type="button" class="btn-alizarin" data-toggle="modal" data-target=".bs-example-modal-lg">ADICIONAR ALUNO</button>
+        </div>
+    </div>
+</div>
+
+
+<!-- modal conclusao de inclusao de aluno-->
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content t-c card">
+            <h3>PARABÉNS, NOVO ALUNO ADICIONADO COM SUCESSO!</h3>
+            <div class="row">
+                <div class="col-md-4 m-t-20 col-md-offset-4">
+                    <button class="btn-midnight">ADICIONAR NOVO ALUNO</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

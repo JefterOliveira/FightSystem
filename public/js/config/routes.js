@@ -35,6 +35,21 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', function($
       controller: "gestaoTurmasCtrl"
     })
 
+    .state('novoaluno', {
+      url: "/novoaluno",
+      params: {
+        aluno: null 
+      },    
+      templateUrl: "templates/novoAluno.html",
+      controller: "novoAlunoCtrl"
+    })
+
+    /*.state('gestaoalunos', {
+      url: "/gestaoalunos",   
+      templateUrl: "templates/gestaoAlunos.html",
+      controller: "gestaoAlunosCtrl"
+    })*/
+
     $urlRouterProvider.otherwise('/home')
   }
 ])

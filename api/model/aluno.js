@@ -69,16 +69,16 @@ module.exports = (conexao, Sequelize) => {
   estado: {
     type: Sequelize.STRING(15), allowNull: false
   },
-  telefone: {
+  telefoneResidencial: {
     type: Sequelize.STRING(15), allowNull: true
   },
   celular: {
     type: Sequelize.STRING(15), allowNull: false
   },
-  telefoneRec: {
+  telefoneRecorrente: {
     type: Sequelize.STRING(15), allowNull: true
   },
-  telefoneCom: {
+  telefoneComplementar: {
     type: Sequelize.STRING(15), allowNull: true
   },
   email: {
