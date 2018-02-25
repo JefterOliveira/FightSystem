@@ -19,7 +19,6 @@ db.turma = require('../api/model/turma')(conexao, Sequelize)
 db.curso = require('../api/model/curso')(conexao, Sequelize)
 db.aluno = require('../api/model/aluno')(conexao, Sequelize)
 db.categoria = require('../api/model/categoria')(conexao, Sequelize)
-db.categoria = require('../api/model/categoria')(conexao, Sequelize)
 db.diaAulaTurma = require('../api/model/diaAulaTurma')(conexao, Sequelize)
 
 //relacionamentos

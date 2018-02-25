@@ -25,21 +25,21 @@
                             <div class="row">
                                 <div class="col-md-10 col-md-offset-1">
                                     <div class="form-group">
-                                        <input class="form-control circle-input" type="text" name="nome" placeholder="QUAL ARTE TREINOU POR MAIS TEMPO?">
+                                        <input class="form-control circle-input" type="text" name="nome" placeholder="QUAL ARTE TREINOU POR MAIS TEMPO?" ng-model="aluno.arteMaisTreinada">
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-10 col-md-offset-1">
                                     <div class="form-group">
-                                        <input class="form-control circle-input" type="text" name="nome" placeholder="QUANTO TEMPO?">
+                                        <input class="form-control circle-input" type="text" name="nome" placeholder="QUANTO TEMPO?" ng-model="aluno.tempoArteMaisTreinada">
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-10 col-md-offset-1">
                                     <div class="form-group">
-                                        <input class="form-control circle-input" type="text" name="nome" placeholder="SUA GRADUAÇÃO?">
+                                        <input class="form-control circle-input" type="text" name="nome" placeholder="SUA GRADUAÇÃO?" ng-model="aluno.graduacao">
                                     </div>
                                 </div>
                             </div>
@@ -49,13 +49,13 @@
                                 </div>
                                 <div class="col-md-2">
                                     <div class="radio">
-                                        <input class="radio-modal" type="radio" name="optionsRadios" id="optionRadios1" value="option1" checked>
+                                        <input class="radio-modal" type="radio" name="ja-deu-aula" value="1" ng-model="aluno.deuAula">
                                         <label>SIM</label>
                                     </div>
                                 </div>
                                 <div class="col-md-2">
                                     <div class="radio">
-                                        <input class="radio-modal" type="radio" name="optionsRadios" id="optionRadios2" value="option2">
+                                        <input class="radio-modal" type="radio" name="ja-deu-aula" value="0" ng-model="aluno.deuAula">
                                         <label>NÃO</label>
                                     </div>
                                 </div>
@@ -66,13 +66,13 @@
                                 </div>
                                 <div class="col-md-2">
                                     <div class="radio">
-                                        <input class="radio-modal" type="radio" name="optionsRadios" id="optionRadios1" value="option1" checked>
+                                        <input class="radio-modal" type="radio" name="equivalencia"  value="1" ng-model="aluno.equivalencia">
                                         <label>SIM</label>
                                     </div>
                                 </div>
                                 <div class="col-md-2">
                                     <div class="radio">
-                                        <input class="radio-modal" type="radio" name="optionsRadios" id="optionRadios2" value="option2">
+                                        <input class="radio-modal" type="radio" name="equivalencia"  value="0" ng-model="aluno.equivalencia">
                                         <label>NÃO</label>
                                     </div>
                                 </div>
@@ -94,13 +94,13 @@
                                 </div>
                                 <div class="col-md-2">
                                     <div class="radio">
-                                        <input class="radio-modal" type="radio" name="optionsRadios" id="optionRadios1" value="option1" checked>
+                                        <input class="radio-modal" type="radio" name="ja-conhecia" value="1" ng-model="aluno.jaConhecia">
                                         <label>SIM</label>
                                     </div>
                                 </div>
                                 <div class="col-md-2">
                                     <div class="radio">
-                                        <input class="radio-modal" type="radio" name="optionsRadios" id="optionRadios2" value="option2">
+                                        <input class="radio-modal" type="radio" name="ja-conhecia" value="0" ng-model="aluno.jaConhecia">
                                         <label>NÃO</label>
                                     </div>
                                 </div>
@@ -108,7 +108,7 @@
                             <div class="row">
                                 <div class="col-md-10 m-t-10 col-md-offset-1">
                                     <div class="form-group">
-                                        <input class="form-control circle-input" type="text" name="nome" placeholder="COMO NOS CONHECEU?">
+                                        <input class="form-control circle-input" type="text" name="nome" placeholder="COMO NOS CONHECEU?" aluno.comoConheceu>
                                     </div>
                                 </div>
                             </div>

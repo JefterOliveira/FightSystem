@@ -3,6 +3,7 @@ const express = require('express')
 const unidadeService = require('../api/services/unidadeService')
 const alunoService = require('../api/services/alunoService')
 const cursoService = require('../api/services/cursoService')
+const categoriaService = require('../api/services/categoriaService')
 const turmaService = require('../api/services/turmaService')
 
 module.exports = function(server){
@@ -35,6 +36,8 @@ module.exports = function(server){
   router.route('/aluno').get(alunoService.obterTodos)
   //rotas de curso
   router.route('/curso').get(cursoService.obterTodos)
+  //rotas de categoria
+  router.route('/categoria').get(categoriaService.obterTodos)
 
   router.get('/', function(req, res){
 		res.status(200).render('index');

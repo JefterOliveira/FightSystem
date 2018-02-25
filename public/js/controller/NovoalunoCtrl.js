@@ -14,7 +14,14 @@ function novoAlunoCtrl($scope, $state, apiService, apiConstantes){
         console.log($scope.aluno.desconto)
     }
         
-    
+    function getCategorias(){
+        apiService.get(apiConstantes.baseUrlAPI + apiConstantes.categoria).then(function(result){
+            $scope.categorias = result.data;
+        }, function(error){
+            console.log(error)
+        })
+    }
+    getCategorias();
 
     
 }

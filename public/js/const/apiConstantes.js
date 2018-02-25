@@ -21,6 +21,9 @@ angular.module('app').constant("apiConstantes", {
     ativarTurma: "/ativarturma",
 
     //rotas de curso
-    curso: "/curso"
+    curso: "/curso",
+
+    //rotas de categoria
+    categoria: "/categoria"
 
 });
