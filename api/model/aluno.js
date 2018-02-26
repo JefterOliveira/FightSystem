@@ -19,7 +19,7 @@ module.exports = (conexao, Sequelize) => {
     type: Sequelize.BOOLEAN, allowNull: true
   },
   equivalencia: {
-    type: Sequelize.STRING(45), allowNull: true
+    type: Sequelize.BOOLEAN, allowNull: true
   },
   /*documentos: {  arquivooo
     type: Sequelize.TEXT, allowNull: false   
@@ -29,9 +29,6 @@ module.exports = (conexao, Sequelize) => {
   },
   nome: {
     type: Sequelize.STRING(50), allowNull: false
-  },
-  categoria: {
-    type: Sequelize.STRING(40), allowNull: false
   },
   nomePai: {
     type: Sequelize.STRING(50), allowNull: true

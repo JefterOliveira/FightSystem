@@ -41,7 +41,7 @@ db.aluno.belongsTo(db.categoria, { foreignKey: 'categoriaReferencia' })
 
 conexao.authenticate().then(() => {
     console.log('Connection has been established successfully.');
-    conexao.sync(/*{force:true}*/).then(() => {
+conexao.sync(/*{force:true}*/).then(() => {
         console.log('Modelo sincronizado com o banco.');
     })
     .catch(err => {

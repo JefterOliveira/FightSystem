@@ -108,7 +108,7 @@
                             <div class="row">
                                 <div class="col-md-10 m-t-10 col-md-offset-1">
                                     <div class="form-group">
-                                        <input class="form-control circle-input" type="text" name="nome" placeholder="COMO NOS CONHECEU?" aluno.comoConheceu>
+                                        <input class="form-control circle-input" type="text" name="como-conheceu" placeholder="COMO NOS CONHECEU?" ng-model="aluno.comoConheceu" >
                                     </div>
                                 </div>
                             </div>
@@ -143,7 +143,7 @@
         </div>
         <div class="col-md-6">
             <div class="form-group">
-                <select class="form-control circle-input" ng-model="aluno.categoria" name="categoria" ng-options="categoria.id as categoria.nome for categoria in categorias track by categoria.id"
+                <select class="form-control circle-input" ng-model="aluno.categoriaReferencia" name="categoria" ng-options="categoria.id as categoria.nome for categoria in categorias track by categoria.id"
                     required>
                     <option value="" selected disabled>CATEGORIA</option>
                 </select>
@@ -181,11 +181,11 @@
         <div class="col-md-6">
             <label class="label-checkbox title">SEXO</label>
             <div class="form-group check-box">
-                <input class="checkbox" type="radio" name="sexo" value="masculino" ng-model="aluno.sexo" required>
+                <input class="checkbox" type="radio" name="sexo" value="m" ng-model="aluno.sexo" required>
                 <label class="label-checkbox">MASCULINO </label>
             </div>
             <div class="form-group check-box">
-                <input class="checkbox" type="radio" name="sexo" value="feminimo" ng-model="aluno.sexo" required>
+                <input class="checkbox" type="radio" name="sexo" value="f" ng-model="aluno.sexo" required>
                 <label class="label-checkbox">FEMININO</label>
             </div>
         </div>
@@ -198,7 +198,7 @@
         </div>
         <div class="col-md-2">
             <div class="form-group">
-                <input class="form-control circle-input" type="text" name="orgao" placeholder="ORGÃO" ng-model="aluno.orgamEmissor" required>
+                <input class="form-control circle-input" type="text" name="orgao" placeholder="ORGÃO" ng-model="aluno.orgao" required>
             </div>
         </div>
         <div class="col-md-6">
@@ -261,7 +261,7 @@
         </div>
         <div class="col-md-3">
             <div class="form-group">
-                <input class="form-control circle-input" type="text" name="telefonere-sidencial" placeholder="TELEFONE RESIDENCIAL" ng-model="aluno.telefoneResidencial" >
+                <input class="form-control circle-input" type="text" name="telefonere-residencial" placeholder="TELEFONE RESIDENCIAL" ng-model="aluno.telefoneResidencial" >
             </div>
         </div>
         <div class="col-md-3">
@@ -301,7 +301,7 @@
     <div class="row">
         <div class="col-md-3">
             <div class="form-group">
-                <input class="form-control circle-input" type="text" name="tipo-sanguineo" placeholder="SANGUE/RH" ng-model="aluno.tipoSanquineo" >
+                <input class="form-control circle-input" type="text" name="tipo-sanguineo" placeholder="SANGUE/RH" ng-model="aluno.tipoSanguineo" >
             </div>
         </div>
         <div class="col-md-3">
@@ -328,7 +328,7 @@
         </div>
         <div class="col-md-3">
             <div class="form-group">
-                <input class="form-control circle-input" type="text" name="medicacao" placeholder="QUAL?" ng-model="aluno.medicacao" >
+                <input class="form-control circle-input" type="text" name="medicacao" placeholder="QUAL?" ng-model="aluno.medicamentosUtilizados" >
             </div>
         </div>
         <div class="col-md-6">
@@ -384,7 +384,7 @@
         </div>
         <div class="col-md-6">
             <div class="form-group">
-                <select class="form-control circle-input" ng-model="aluno.desconto" name="desconto" ng-options="desconto.valor as desconto.label for desconto in descontos track by desconto.valor"
+                <select ng-change="teste()" class="form-control circle-input" ng-model="aluno.desconto" name="desconto" ng-options="desconto.valor as desconto.label for desconto in descontos track by desconto.valor"
                     required>
                 </select>
             </div>
@@ -395,14 +395,14 @@
             <button class="btn-midnight">LIMPAR</button>
         </div>
         <div class="col-md-3 m-t-30 col-xs-5">
-            <button onclick="openModal()" type="button" class="btn-alizarin" data-toggle="modal" data-target=".bs-example-modal-lg">ADICIONAR ALUNO</button>
+            <button type="button" class="btn-alizarin" data-target=".bs-example-modal-lg" ng-click="salvarAluno(aluno)">ADICIONAR ALUNO</button>
         </div>
     </div>
 </div>
 
 
 <!-- modal conclusao de inclusao de aluno-->
-<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+<div id="modalAlunoSalvo" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content t-c card">
             <h3>PARABÉNS, NOVO ALUNO ADICIONADO COM SUCESSO!</h3>
