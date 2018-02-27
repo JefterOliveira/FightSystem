@@ -14,6 +14,8 @@ function novaTurmaCtrl($scope, $state, apiService, apiConstantes){
 
     $scope.unidades = [];
     $scope.cursos = [];
+    $scope.alunos = [];
+    $scope.alunosMatriculados = [];
 
     /*$scope.fecharModal = function(){ 
         $("#modal").modal('hide');
@@ -22,6 +24,9 @@ function novaTurmaCtrl($scope, $state, apiService, apiConstantes){
 
     $scope.compararDiaSemana = function(obj1, obj2) {
         return obj1 === obj2;
+    }
+    $scope.compararAluno = function(obj1, obj2) {
+        return obj1.id === obj2.id;
     }
 
     $scope.checkboxDias = [
@@ -33,6 +38,14 @@ function novaTurmaCtrl($scope, $state, apiService, apiConstantes){
         {text: "SAB", value: diasSemanaEnum.SAB},
         {text: "DOM", value: diasSemanaEnum.DOM}
     ]
+
+    function getAlunosNaoMatriculados(){
+        apiService.get(apiConstantes.baseUrlAPI + apiConstantes.aluno).then(function(result){
+            $scope.alunos = result.data;
+        }, function(error){
+            console.log(error)
+        })
+    }
 
     function getUnidades(){
         apiService.get(apiConstantes.baseUrlAPI + apiConstantes.unidade).then(function(result){
@@ -49,6 +62,7 @@ function novaTurmaCtrl($scope, $state, apiService, apiConstantes){
             console.log(error)
         })
     }
+    getAlunosNaoMatriculados();
     getUnidades();
     getCursos();
 
@@ -66,6 +80,7 @@ function novaTurmaCtrl($scope, $state, apiService, apiConstantes){
         $scope.turma.diaAulaTurma = prepararTurmaDiaAula($scope.turma.diaAulaTurmaApoio)
         apiService.post(apiConstantes.baseUrlAPI + apiConstantes.turma, turma).then(function(result){
             $scope.turma = {}
+            $("#modal-aluno-adicionado").modal('show');
         }, function(error){
             console.log(error)
         })
@@ -75,6 +90,7 @@ function novaTurmaCtrl($scope, $state, apiService, apiConstantes){
         $scope.turma.diaAulaTurma = prepararTurmaDiaAula($scope.turma.diaAulaTurmaApoio)
         apiService.put(apiConstantes.baseUrlAPI + apiConstantes.turma, turma).then(function(result){
             $scope.turma = {}
+            $("#modal-aluno-adicionado").modal('show');
         }, function(error){
             console.log(error)
         })

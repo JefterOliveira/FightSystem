@@ -53,5 +53,9 @@ function novoAlunoCtrl($scope, $state, apiService, apiConstantes){
             console.log(error)
         })
     }
+
+    $scope.alterarAluno = function(){
+        
+    }
     
 }

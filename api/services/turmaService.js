@@ -1,7 +1,6 @@
 const db = require('../../config/database');
 
 db.turma.criar = function (req, res, next) {
-    
     db.turma.create({
         professor: req.body.professor,
         turno: req.body.turno,
@@ -14,19 +13,33 @@ db.turma.criar = function (req, res, next) {
         diaAulaTurmas: req.body.diaAulaTurma
     },
     {
-        include: [ db.diaAulaTurma ]
+        include: [db.diaAulaTurma]
     }
     ).then(function(turma){
-        /*db.diaAulaTurma.create({
-            diaSemana: 3, 
-            turmaReferencia: turma.id
-        }).then(function(diasAulas){
-            res.status(200).json(turma);
-        }, function(error){
-            console.log(error)
-            res.status(500).json(error);
-        })*/
-        res.status(200).json(turma);
+        if(req.body.alunos){
+            Promise.all(req.body.alunos.map(obj => {
+                db.aluno.update({
+                    turmaReferencia: turma.id
+                    },
+                    {
+                        where: {
+                            id: {
+                                $eq: obj.id
+                            }
+                        }
+                    }
+                ) 
+            }))           
+            .then(function(result){
+                console.log(result)
+                res.status(200).json("Turma criada com sucesso!");
+            }, function(error){
+                console.log(error)
+                res.status(500).json(error);
+            })
+        }else{
+            res.status(200).json("Turma criada com sucesso!");
+        } 
     }, function (error) {
         console.log(error);
         res.status(500).json(error);

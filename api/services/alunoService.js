@@ -106,13 +106,18 @@ db.aluno.atualizar = function(req, res, next){
     })
 }
 
-db.aluno.obterTodos = function(req, res, next){
+db.aluno.obterTodosNaoMatriculados = function(req, res, next){
     db.aluno.findAll({
-        
+        where: {
+            turmaReferencia: {
+                $eq: null
+            }
+        }
     }).then(function(result){
         res.status(200).json(result)
     },function(error){
         console.log(error);
+        res.status(500).json(error);
     })
 }
 

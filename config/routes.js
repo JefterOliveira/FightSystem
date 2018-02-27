@@ -33,7 +33,7 @@ module.exports = function(server){
   // rotas de aluno
   router.route('/aluno').post(alunoService.criar)
   router.route('/aluno').put(alunoService.atualizar)
-  router.route('/aluno').get(alunoService.obterTodos)
+  router.route('/aluno').get(alunoService.obterTodosNaoMatriculados)
   //rotas de curso
   router.route('/curso').get(cursoService.obterTodos)
   //rotas de categoria

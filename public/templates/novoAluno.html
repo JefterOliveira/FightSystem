@@ -395,8 +395,11 @@
         <div class="col-md-2 m-t-30 col-md-offset-7 col-xs-3">
             <button class="btn-midnight" ng-click="limparForm()">LIMPAR</button>
         </div>
-        <div class="col-md-3 m-t-30 col-xs-5">
+        <div class="col-md-3 m-t-30 col-xs-5" ng-if="!aluno.id">
             <button type="button" class="btn-alizarin" data-target=".bs-example-modal-lg" ng-click="salvarAluno(aluno)">ADICIONAR ALUNO</button>
+        </div>
+        <div class="col-md-3 m-t-30 col-xs-5" ng-if="aluno.id">
+            <button type="button" class="btn-alizarin" data-target=".bs-example-modal-lg" ng-click="alterarAluno(aluno)">ALTERAR ALUNO</button>
         </div>
     </div>
 </div>

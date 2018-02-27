@@ -66,7 +66,7 @@
                         <label class="label-checkbox">TARDE</label>
                     </div>
                     <div class="form-group">
-                        <input class="" type="radio"ng-model="turma.turno" name="turno" value="noite" required>
+                        <input class="" type="radio" ng-model="turma.turno" name="turno" value="noite" required>
                         <label class="label-checkbox">NOITE</label>
                     </div>
                 </div>
@@ -74,68 +74,9 @@
         </div>
         <div class="row">
             <div class="col-md-6">
-                <button class="btn-white" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">ADICIONAR ALUNOS PARA ESSA TURMA
+                <button class="btn-white" type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-lista-aluno">ADICIONAR ALUNOS PARA ESSA TURMA
                     <i class="material-icons">keyboard_arrow_right</i>
                 </button>
-                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h4>ADICIONAR ALUNOS</h4>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-
-                            <div class="modal-body">
-                                <div class="row">
-                                    <div class="col-md-6 col-md-offset-3">
-                                        <ul class="ul-adicionar-alunos">
-                                            <li>
-                                                <input class="checkbox-2" type="checkbox" name="">Rafaela Cristina</li>
-                                            <li>
-                                                <input class="checkbox-2" type="checkbox" name="">Franck Pierre</li>
-                                            <li>
-                                                <input class="checkbox-2" type="checkbox" name="">Vinicius Quadros</li>
-                                            <li>
-                                                <input class="checkbox-2" type="checkbox" name="">Newton Machado</li>
-                                            <li>
-                                                <input class="checkbox-2" type="checkbox" name="">Lucas Marcondes</li>
-                                            <li>
-                                                <input class="checkbox-2" type="checkbox" name="">Lucas Moura</li>
-                                            <li>
-                                                <input class="checkbox-2" type="checkbox" name="">Pedro Henrique</li>
-                                            <li>
-                                                <input class="checkbox-2" type="checkbox" name="">Rafaela Cristina</li>
-                                            <li>
-                                                <input class="checkbox-2" type="checkbox" name="">Franck Pierre</li>
-                                            <li>
-                                                <input class="checkbox-2" type="checkbox" name="">Vinicius Quadros</li>
-                                            <li>
-                                                <input class="checkbox-2" type="checkbox" name="">Newton Machado</li>
-                                            <li>
-                                                <input class="checkbox-2" type="checkbox" name="">Lucas Marcondes</li>
-                                            <li>
-                                                <input class="checkbox-2" type="checkbox" name="">Lucas Moura</li>
-                                            <li>
-                                                <input class="checkbox-2" type="checkbox" name="">Pedro Henrique</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <button type="button" class="btn-midnight" data-dismiss="modal">FECHAR</button>
-                                    </div>
-                                    <div class="col-md-5 col-md-offset-4">
-                                        <button type="button" class="btn-alizarin">ADICIONAR ALUNOS</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
             <div class="col-md-3">
                 <div class="form-group">
@@ -152,16 +93,53 @@
                     <button class="btn-midnight" ng-click="testconsole()">LIMPAR</button>
                 </div>
                 <div class="col-md-3 m-t-30">
-                    <button ng-click="salvarTurma(turma)" type="button" class="btn-alizarin" data-toggle="modal" data-target=".bs-example-modal-lg" ng-if="!turma.id">ADICIONAR TURMA</button>
-                    <button ng-click="alterarTurma(turma)" type="button" class="btn-alizarin" data-toggle="modal" data-target=".bs-example-modal-lg" ng-if="turma.id">ALTERAR TURMA</button>
+                    <button ng-click="salvarTurma(turma)" type="button" class="btn-alizarin" ng-if="!turma.id">ADICIONAR TURMA</button>
+                    <button ng-click="alterarTurma(turma)" type="button" class="btn-alizarin" ng-if="turma.id">ALTERAR TURMA</button>
                 </div>
             </div>
         </div>
     </div>
 </form>
 
+<!-- modal lista aluno -->
+<div class="modal fade" id="modal-lista-aluno" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4>ADICIONAR ALUNOS</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3">
+                        <div class="form-group check-box" ng-repeat="aluno in alunos">
+                            <label>
+                                <input class="checkbox" type="checkbox" checklist-model="turma.alunos" checklist-value="aluno" checklist-comparator="compararAluno">
+                                <label class="label-checkbox"></label>{{aluno.nome}}</label>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="row">
+                    <div class="col-md-3">
+                        <button type="button" class="btn-midnight" data-dismiss="modal">FECHAR</button>
+                    </div>
+                    <div class="col-md-5 col-md-offset-4">
+                        <button type="button" class="btn-alizarin">ADICIONAR ALUNOS</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- modal confirmacao-->
-<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+<div id="modal-aluno-adicionado" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content card">
             <h3>PARABÉNS! A SUA TURMA FOI SALVA COM SUCESSO!</h3>
