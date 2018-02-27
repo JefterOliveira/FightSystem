@@ -79,7 +79,7 @@ module.exports = (conexao, Sequelize) => {
     type: Sequelize.STRING(15), allowNull: true
   },
   email: {
-    type: Sequelize.STRING(20), allowNull: false
+    type: Sequelize.STRING(50), allowNull: false
   },
   peso: {
     type: Sequelize.DOUBLE, allowNull: false
@@ -97,13 +97,13 @@ module.exports = (conexao, Sequelize) => {
     type: Sequelize.STRING(15), allowNull: false
   },
   medicamentosUtilizados: {
-    type: Sequelize.STRING(150), allowNull: false
+    type: Sequelize.STRING(150), allowNull: true
   },
   fraturas: {
-    type: Sequelize.STRING(150), allowNull: false
+    type: Sequelize.STRING(150), allowNull: true
   },
   planoSaude: {
-    type: Sequelize.STRING(40), allowNull: false
+    type: Sequelize.STRING(40), allowNull: true
   },
   nomeContatoEmergencia: {
     type: Sequelize.STRING(50), allowNull: false
@@ -112,7 +112,7 @@ module.exports = (conexao, Sequelize) => {
     type: Sequelize.STRING(15), allowNull: false
   },
   telefoneContatoEmergencia2: {
-    type: Sequelize.STRING(15), allowNull: false
+    type: Sequelize.STRING(15), allowNull: true
   },
   desconto: {
     type: Sequelize.INTEGER, allowNull: false

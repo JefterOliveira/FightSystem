@@ -9,7 +9,7 @@ db.aluno.criar = function (req, res, next) {
         equivalencia: req.body.equivalencia,
         comoConheceu: req.body.comoConheceu,
         nome: req.body.nome,
-        categoria: req.body.categoria,
+        categoriaReferencia: req.body.categoriaReferencia,
         nomePai: req.body.nomePai,
         nomeMae: req.body.nomeMae,
         dataNascimento: req.body.dataNascimento,
@@ -42,6 +42,7 @@ db.aluno.criar = function (req, res, next) {
         ativo: req.body.ativo,
         situacao: req.body.situacao
     }).then(function(result){
+        res.status(200).json(result);
         console.log(result)
     }, function (error) {
         console.log(error);
@@ -58,7 +59,7 @@ db.aluno.atualizar = function(req, res, next){
         equivalencia: req.body.equivalencia,
         comoConheceu: req.body.comoConheceu,
         nome: req.body.nome,
-        categoria: req.body.categoria,
+        categoriaReferencia: req.body.categoriaReferencia,
         nomePai: req.body.nomePai,
         nomeMae: req.body.nomeMae,
         dataNascimento: req.body.dataNascimento,

@@ -10,7 +10,11 @@ function novoAlunoCtrl($scope, $state, apiService, apiConstantes){
     } 
     else{
         $scope.aluno = {};
-        $scope.aluno.desconto = $scope.descontos[0];
+        //$scope.aluno.desconto = $scope.descontos[0];
+    }
+
+    $scope.limparForm = function(){
+        $scope.aluno = {};
     }
         
     function getCategorias(){
@@ -26,7 +30,21 @@ function novoAlunoCtrl($scope, $state, apiService, apiConstantes){
         console.log($scope.aluno)
     }
 
+    function prepararAluno(aluno){
+        aluno.identidade = aluno.identidade.replace(/[\D]+/g, '')
+        aluno.cpf = aluno.cpf.replace(/[\D]+/g, '')
+        aluno.celular = aluno.celular.replace(/[\D]+/g, '')
+        aluno.telefoneResidencial = aluno.telefoneResidencial ? aluno.telefoneResidencial.replace(/[\D]+/g, '') : null
+        aluno.telefoneRecorrente = aluno.telefoneRecorrente ? aluno.telefoneRecorrente.replace(/[\D]+/g, '') : null
+        aluno.telefoneComplementar = aluno.telefoneComplementar ? aluno.telefoneComplementar.replace(/[\D]+/g, '') : null
+        aluno.telefoneContatoEmergencia1 = aluno.telefoneContatoEmergencia1.replace(/[\D]+/g, '')
+        aluno.telefoneContatoEmergencia2 = aluno.telefoneContatoEmergencia2 ? aluno.telefoneContatoEmergencia2.replace(/[\D]+/g, '') : null
+        return aluno
+    }
+
     $scope.salvarAluno = function(aluno){
+        console.log(aluno)
+        aluno = prepararAluno(aluno)
         console.log(aluno)
         apiService.post(apiConstantes.baseUrlAPI + apiConstantes.aluno, aluno).then(function(result){
             $scope.aluno = {}
