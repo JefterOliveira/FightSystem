@@ -8,25 +8,25 @@
     <div class="row topo-gestao m-t-30">
         <div class="col-md-2 col-xs-2">
             <div class="card gestao total">
-                <h1>35</h1>
+                <h1>{{alunos.length}}</h1>
                 <p>TOTAL</p>
             </div>
         </div>
         <div class="col-md-2 col-xs-2">
             <div class="card gestao pendentes">
-                <h1>3</h1>
+                <h1>{{qtdPendentes}}</h1>
                 <p>PENDENTES</p>
             </div>
         </div>
         <div class="col-md-2 col-xs-2">
             <div class="card gestao ativos">
-                <h1>27</h1>
+                <h1>{{qtdAtivos}}</h1>
                 <p>ATIVOS</p>
             </div>
         </div>
         <div class="col-md-2 col-xs-2">
             <div class="card gestao inativos">
-                <h1>5</h1>
+                <h1>{{qtdInativos}}</h1>
                 <p>INATIVOS</p>
             </div>
         </div>
@@ -81,8 +81,11 @@
                         <td>
                             <p>{{aluno.turma.turno}}</p>
                         </td>
-                        <td>
+                        <td ng-if="aluno.ativo">
                             <span class="label-status label-success"> </span>
+                        </td>
+                        <td ng-if="!aluno.ativo">
+                            <span class="label-status label-danger"> </span>
                         </td>
                         <td>
                             <button class="dropdown-toggle btn-opcoes" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -90,7 +93,7 @@
                             </button>
                             <ul class="dropdown-menu dropdown-menu-right">
                                 <li>
-                                    <button class="btn-opcoes btn-pophover" type="button" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">
+                                    <button class="btn-opcoes btn-pophover" type="button" ng-click="abrirModalFichaAluno(aluno)">
                                         <i class="material-icons">assignment</i>
                                         <p>Abrir ficha do aluno</p>
                                     </button>
@@ -146,13 +149,13 @@
 
     <!-- ______________________________ MODAIS __________________________________ -->
 
-    <!-- ______________________________ MODAL1 _________________-________________ -->
+    <!-- ______________________________ MODAL FICHA ALUNO _________________-________________ -->
 
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" style="display: none;">
+    <div class="modal fade" id="modal-ficha-aluno" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" style="display: none;">
         <div class="modal-dialog" role="document">
             <div class="modal-content alignCenter">
                 <div class="modal-header">
-                    <h4>Marcos Magalhães</h4>
+                    <h4>{{alunoSelecionado.nome}}</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
@@ -192,10 +195,10 @@
                                             Categoria : ALUNO ATIVO
                                             <br> Status :
                                             <span class="label label-warning">PENDENTE</span>
-                                            <br> Unidade : ACM
-                                            <br> Turma : 000005
-                                            <br> E-mail : marcosmagalhaes@gmail.com
-                                            <br> Tel. Cel. : (21) 9 9999 0331
+                                            <br> Unidade : {{alunoSelecionado.turma.unidade.nome}}
+                                            <br> Turma : {{alunoSelecionado.turma.id}}
+                                            <br> E-mail : {{alunoSelecionado.email}}
+                                            <br> Celular : {{alunoSelecionado.celular}}
                                             <br>
                                         </p>
                                     </div>
