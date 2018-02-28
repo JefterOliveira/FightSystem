@@ -15,6 +15,8 @@ angular.module('app').constant("apiConstantes", {
     
     //rotas de aluno
     aluno: "/aluno",
+    alunoDisponivel: "/alunodisponivel",
+    alunoPorTurma: "/alunoporturma",
     
     //rotas de turma
     turma: "/turma",

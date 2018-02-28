@@ -121,5 +121,44 @@ db.aluno.obterTodosNaoMatriculados = function(req, res, next){
     })
 }
 
+db.aluno.obterTodosPorTurma = function(req, res, next){
+    db.aluno.findAll({
+        where: {
+            turmaReferencia: {
+                $eq: req.params.id
+            }
+        }
+    }).then(function(result){
+        res.status(200).json(result)
+    },function(error){
+        console.log(error);
+        res.status(500).json(error);
+    })
+}
+
+db.aluno.obterTodos = function(req, res, next){
+    db.aluno.findAll({
+        include: [
+            {
+                model: db.turma,
+                include: [
+                    {
+                        model: db.unidade
+                    }
+                ]
+            },
+            {
+                model: db.categoria,
+                as: 'categoria'
+            }
+        ]
+    }).then(function(result){
+        res.status(200).json(result)
+    },function(error){
+        console.log(error);
+        res.status(500).json(error);
+    })
+}
+
 module.exports = db.aluno;
 

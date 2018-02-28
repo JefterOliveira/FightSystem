@@ -34,8 +34,8 @@ db.aluno.belongsTo(db.turma, { foreignKey: 'turmaReferencia' })
 db.turma.hasMany(db.diaAulaTurma, {foreignKey: 'turmaReferencia'})
 db.diaAulaTurma.belongsTo(db.turma, {foreignKey: 'turmaReferencia'})
 
-db.categoria.hasMany(db.aluno, {foreignKey: 'categoriaReferencia'})
-db.aluno.belongsTo(db.categoria, { foreignKey: 'categoriaReferencia' })
+db.categoria.hasMany(db.aluno, {as: 'aluno', foreignKey: 'categoriaReferencia'})
+db.aluno.belongsTo(db.categoria, {as: 'categoria', foreignKey: 'categoriaReferencia'})
 
 //fim do bloco de relacionamentos
 

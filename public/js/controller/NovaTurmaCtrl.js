@@ -15,7 +15,6 @@ function novaTurmaCtrl($scope, $state, apiService, apiConstantes){
     $scope.unidades = [];
     $scope.cursos = [];
     $scope.alunos = [];
-    $scope.alunosMatriculados = [];
 
     /*$scope.fecharModal = function(){ 
         $("#modal").modal('hide');
@@ -39,9 +38,16 @@ function novaTurmaCtrl($scope, $state, apiService, apiConstantes){
         {text: "DOM", value: diasSemanaEnum.DOM}
     ]
 
-    function getAlunosNaoMatriculados(){
-        apiService.get(apiConstantes.baseUrlAPI + apiConstantes.aluno).then(function(result){
+    function getListaAlunos(){
+        apiService.get(apiConstantes.baseUrlAPI + apiConstantes.alunoDisponivel).then(function(result){
             $scope.alunos = result.data;
+            if($scope.turma.id){
+                apiService.get(apiConstantes.baseUrlAPI + apiConstantes.alunoPorTurma, $scope.turma.id).then(function(result){
+                    result.data.forEach(aluno => $scope.alunos.push(aluno))
+                }, function(error){
+
+                }) 
+            }
         }, function(error){
             console.log(error)
         })
@@ -62,7 +68,7 @@ function novaTurmaCtrl($scope, $state, apiService, apiConstantes){
             console.log(error)
         })
     }
-    getAlunosNaoMatriculados();
+    getListaAlunos();
     getUnidades();
     getCursos();
 

@@ -44,11 +44,11 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', function($
       controller: "novoAlunoCtrl"
     })
 
-    /*.state('gestaoalunos', {
+    .state('gestaoalunos', {
       url: "/gestaoalunos",   
       templateUrl: "templates/gestaoAlunos.html",
       controller: "gestaoAlunosCtrl"
-    })*/
+    })
 
     $urlRouterProvider.otherwise('/home')
   }
