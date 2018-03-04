@@ -46,21 +46,6 @@ db.turma.criar = function (req, res, next) {
     })
 }
 
-db.turma.obterTodos = function(req, res, next){
-    db.turma.findAll({
-        include:[
-           {model: db.curso},
-           {model: db.diaAulaTurma},
-           {model: db.aluno},
-           {model: db.unidade}
-        ]
-    }).then(function(result){
-        res.status(200).json(result)
-    },function(error){
-        res.status(500).json(error);
-    })
-}
-
 db.turma.atualizar = function(req, res, next){
     db.diaAulaTurma.destroy({
         where:{
@@ -88,8 +73,43 @@ db.turma.atualizar = function(req, res, next){
                         }
                     }    
                 ).then(function(turma){
-                    console.log(turma)
-                    res.status(200).json(turma);
+                    db.aluno.update({
+                        turmaReferencia: null
+                    },
+                    {
+                        where:{
+                            turmaReferencia: {
+                                $eq: req.body.id
+                            }
+                        }
+                    }).then(function(result){
+                        if(req.body.alunos){
+                            Promise.all(req.body.alunos.map(obj => {
+                                db.aluno.update({
+                                    turmaReferencia: req.body.id
+                                    },
+                                    {
+                                        where: {
+                                            id: {
+                                                $eq: obj.id
+                                            }
+                                        }
+                                    }
+                                ) 
+                            }))           
+                            .then(function(result){
+                                console.log(result)
+                                res.status(200).json("Turma alterada com sucesso!");
+                            }, function(error){
+                                console.log(error)
+                                res.status(500).json(error);
+                            })
+                        }else{
+                            res.status(200).json("Turma criada com sucesso!");
+                        }     
+                    }, function(error){
+                        console.log(error)
+                    })
                 }, function(error){
                     console.log(error)
                     res.status(500).json(error);
@@ -104,36 +124,22 @@ db.turma.atualizar = function(req, res, next){
         res.status(500).json(error);
     })
 }
-/*
-db.turma.update({
-            professor: req.body.professor,
-            turno: req.body.turno,
-            horaInicio: req.body.horaInicio,
-            horaFim: req.body.horaFim,
-            unidadeReferencia: req.body.unidade.id,
-            cursoReferencia: req.body.curso.id,
-            mensalidade: req.body.mensalidade,
-            rateio: req.body.rateio,  
-            diaAulaTurmas: req.body.diaAulaTurma
-            },
-            {
-                include: [ db.diaAulaTurma ]
-            },
-            {
-                where: {
-                    id: {
-                        $eq: req.body.id
-                    }
-                }
-            }    
-        ).then(function(turma){
-            console.log(turma)
-            res.status(200).json(turma);
-        }, function(error){
-            console.log(error)
-            res.status(500).json(error);
-        })
-*/
+
+db.turma.obterTodos = function(req, res, next){
+    db.turma.findAll({
+        include:[
+           {model: db.curso},
+           {model: db.diaAulaTurma},
+           {model: db.aluno},
+           {model: db.unidade}
+        ]
+    }).then(function(result){
+        res.status(200).json(result)
+    },function(error){
+        res.status(500).json(error);
+    })
+}
+
 db.turma.inativarTurma = function(req, res, next){
     db.turma.update(
         {

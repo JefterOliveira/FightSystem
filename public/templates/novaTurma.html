@@ -18,20 +18,19 @@
             </div>
             <div class="col-md-6 m-t-135">
                 <div class="form-group m-t-30">
-                    <input class="form-control circle-input" type="text" ng-model="turma.professor" name="professor" placeholder="PROFESSOR"
-                        required>
+                    <input class="form-control circle-input" type="text" ng-model="turma.professor" name="professor" placeholder="PROFESSOR" required>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-md-3">
                 <div class="form-group">
-                    <input class="form-control circle-input" type="text" name="inicio" mask="23:59" ng-model="turma.horaInicio" placeholder="INÍCIO">
+                    <input class="form-control circle-input" type="text" name="inicio" mask="23:59" ng-model="turma.horaInicio" placeholder="INÍCIO" required>
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="form-group">
-                    <input class="form-control circle-input" type="text" name="termino" mask="23:59" ng-model="turma.horaFim" placeholder="TÉRMINO">
+                    <input class="form-control circle-input" type="text" name="termino" mask="23:59" ng-model="turma.horaFim" placeholder="TÉRMINO" required>
                 </div>
             </div>
             <div class="col-md-6">
@@ -80,21 +79,21 @@
             </div>
             <div class="col-md-3">
                 <div class="form-group">
-                    <input class="form-control circle-input" type="text" name="mensalidade" ng-model="turma.mensalidade" mask="999.99" placeholder="MENSALIDADE">
+                    <input class="form-control circle-input" type="text" name="mensalidade" ng-model="turma.mensalidade" mask="999.99" placeholder="MENSALIDADE" required>
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="form-group">
-                    <input class="form-control circle-input" type="text" name="rateio" ng-model="turma.rateio" mask="99" placeholder="RATEIO">
+                    <input class="form-control circle-input" type="text" name="rateio" ng-model="turma.rateio" mask="99" placeholder="RATEIO" required>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-2 m-t-30 col-md-offset-7">
-                    <button class="btn-midnight" ng-click="testconsole()">LIMPAR</button>
+                    <button class="btn-midnight" ng-click="limparForm()">LIMPAR</button>
                 </div>
                 <div class="col-md-3 m-t-30">
-                    <button ng-click="salvarTurma(turma)" type="button" class="btn-alizarin" ng-if="!turma.id">ADICIONAR TURMA</button>
-                    <button ng-click="alterarTurma(turma)" type="button" class="btn-alizarin" ng-if="turma.id">ALTERAR TURMA</button>
+                    <button ng-click="salvarTurma(turma)" type="button" class="btn-alizarin" ng-if="!turma.id" ng-disabled="formNovaTurma.$invalid">ADICIONAR TURMA</button>
+                    <button ng-click="alterarTurma(turma)" type="button" class="btn-alizarin" ng-if="turma.id" ng-disabled="formNovaTurma.$invalid">ALTERAR TURMA</button>
                 </div>
             </div>
         </div>

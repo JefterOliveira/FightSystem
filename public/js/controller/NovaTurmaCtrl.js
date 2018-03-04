@@ -101,4 +101,8 @@ function novaTurmaCtrl($scope, $state, apiService, apiConstantes){
             console.log(error)
         })
     }
+
+    $scope.limparForm = function(){
+        $scope.turma = {};
+    }
 }
