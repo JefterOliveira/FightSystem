@@ -1,132 +1,17 @@
-<div class="col-md-10 col-md-offset-1">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="title-screen">
-                <h3>GESTÃO DE ALUNOS</h3>
+<form name="formNovoAluno">
+    <div class="col-md-10 col-md-offset-1">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="title-screen">
+                    <h3>GESTÃO DE ALUNOS</h3>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6 m-t-30">
-            <button class="btn-white" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">JÁ PRATICOU ARTE MARCIAL?
-                <i class="material-icons">keyboard_arrow_right</i>
-            </button>
-            <!-- modal dados marciais -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h4>DADOS MARCIAIS</h4>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="row">
-                                <div class="col-md-10 col-md-offset-1">
-                                    <div class="form-group">
-                                        <input class="form-control circle-input" type="text" name="nome" placeholder="QUAL ARTE TREINOU POR MAIS TEMPO?" ng-model="aluno.arteMaisTreinada" minlength="4">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-10 col-md-offset-1">
-                                    <div class="form-group">
-                                        <input class="form-control circle-input" type="text" name="nome" placeholder="QUANTO TEMPO?" ng-model="aluno.tempoArteMaisTreinada" minlength="3">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-10 col-md-offset-1">
-                                    <div class="form-group">
-                                        <input class="form-control circle-input" type="text" name="nome" placeholder="SUA GRADUAÇÃO?" ng-model="aluno.graduacao" minlength="3">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6 col-md-offset-1">
-                                    <label class="label-modal">JÁ DEU AULAS?</label>
-                                </div>
-                                <div class="col-md-2">
-                                    <div class="radio">
-                                        <input class="radio-modal" type="radio" name="ja-deu-aula" value="1" ng-model="aluno.deuAula">
-                                        <label>SIM</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-2">
-                                    <div class="radio">
-                                        <input class="radio-modal" type="radio" name="ja-deu-aula" value="0" ng-model="aluno.deuAula">
-                                        <label>NÃO</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row m-t-10">
-                                <div class="col-md-6 col-md-offset-1">
-                                    <label class="label-modal">EQUIVALÊNCIA?</label>
-                                </div>
-                                <div class="col-md-2">
-                                    <div class="radio">
-                                        <input class="radio-modal" type="radio" name="equivalencia"  value="1" ng-model="aluno.equivalencia">
-                                        <label>SIM</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-2">
-                                    <div class="radio">
-                                        <input class="radio-modal" type="radio" name="equivalencia"  value="0" ng-model="aluno.equivalencia">
-                                        <label>NÃO</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-10 col-md-offset-1 m-t-20">
-                                    <div id="uploadFile" class="upload-group">
-                                        <input id="file-input" class="input-none" type="file" name="file">
-                                        <label class="btn-upload" for="file-input">ANEXAR DOCS</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="modal-header">
-                                <h4>PESQUISA</h4>
-                            </div>
-                            <div class="row m-t-20">
-                                <div class="col-md-6 col-md-offset-1">
-                                    <label class="label-modal">JÁ CONHECIA?</label>
-                                </div>
-                                <div class="col-md-2">
-                                    <div class="radio">
-                                        <input class="radio-modal" type="radio" name="ja-conhecia" value="1" ng-model="aluno.jaConhecia">
-                                        <label>SIM</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-2">
-                                    <div class="radio">
-                                        <input class="radio-modal" type="radio" name="ja-conhecia" value="0" ng-model="aluno.jaConhecia">
-                                        <label>NÃO</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-10 m-t-10 col-md-offset-1">
-                                    <div class="form-group">
-                                        <input class="form-control circle-input" type="text" name="como-conheceu" placeholder="COMO NOS CONHECEU?" ng-model="aluno.comoConheceu" minlength="4">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="col-md-3">
-                                        <button type="button" class="btn-midnight" data-dismiss="modal">FECHAR</button>
-                                    </div>
-                                    <div class="col-md-5 col-md-offset-4">
-                                        <button type="button" class="btn-alizarin">FINALIZAR</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <div class="row">
+            <div class="col-md-6 m-t-30">
+                <button class="btn-white" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">JÁ PRATICOU ARTE MARCIAL?
+                    <i class="material-icons">keyboard_arrow_right</i>
+                </button>
             </div>
         </div>
     </div>
@@ -149,33 +34,26 @@
                 </select>
             </div>
         </div>
-        <!--<div class="col-md-6">
-            <div class="form-group m-t-10">
-                <select class="form-control circle-input">
-                    <option>CATEGORIA</option>
-                    <option>UNIDADE</option>
-                    <option>UNIDADE</option>
-                    <option>UNIDADE</option>
-                </select>
-            </div>
-        </div>-->
     </div>
     <div class="row">
         <div class="col-md-6">
             <div class="form-group">
-                <input class="form-control circle-input" type="text" name="nomepai" placeholder="NOME DO PAI" ng-model="aluno.nomePai" minlength="4" required>
+                <input class="form-control circle-input" type="text" name="nomepai" placeholder="NOME DO PAI" ng-model="aluno.nomePai" minlength="4"
+                    required>
             </div>
         </div>
         <div class="col-md-6">
             <div class="form-group">
-                <input class="form-control circle-input" type="text" name="nomemae" placeholder="NOME DA MÃE" ng-model="aluno.nomeMae" minlength="4" required>
+                <input class="form-control circle-input" type="text" name="nomemae" placeholder="NOME DA MÃE" ng-model="aluno.nomeMae" minlength="4"
+                    required>
             </div>
         </div>
     </div>
     <div class="row">
         <div class="col-md-6">
             <div class="form-group">
-                <input class="form-control circle-input" type="date" name="nome" placeholder="DATA DE NASCIMENTO" ng-model="aluno.dataNascimento" required>
+                <input class="form-control circle-input" type="date" name="nome" placeholder="DATA DE NASCIMENTO" ng-model="aluno.dataNascimento"
+                    required>
             </div>
         </div>
         <div class="col-md-6">
@@ -193,7 +71,8 @@
     <div class="row">
         <div class="col-md-4">
             <div class="form-group">
-                <input class="form-control circle-input" type="text" name="identidade" mask="99.999.999-9" placeholder="IDENTIDADE" ng-model="aluno.identidade" required>
+                <input class="form-control circle-input" type="text" name="identidade" mask="99.999.999-9" placeholder="IDENTIDADE" ng-model="aluno.identidade"
+                    required>
             </div>
         </div>
         <div class="col-md-2">
@@ -203,7 +82,8 @@
         </div>
         <div class="col-md-6">
             <div class="form-group">
-                <input class="form-control circle-input" type="text" name="cpf" mask="999.999.999-99" placeholder="CPF" ng-model="aluno.cpf" required>
+                <input class="form-control circle-input" type="text" name="cpf" mask="999.999.999-99" placeholder="CPF" ng-model="aluno.cpf"
+                    required>
             </div>
         </div>
     </div>
@@ -220,7 +100,8 @@
         </div>
         <div class="col-md-6 m-t-10">
             <div class="form-group">
-                <input class="form-control circle-input" type="text" name="complemento" placeholder="COMPLEMENTO" ng-model="aluno.complemento" required>
+                <input class="form-control circle-input" type="text" name="complemento" placeholder="COMPLEMENTO" ng-model="aluno.complemento"
+                    required>
             </div>
         </div>
     </div>
@@ -256,22 +137,26 @@
     <div class="row">
         <div class="col-md-3">
             <div class="form-group">
-                <input class="form-control circle-input" type="text" name="celular" placeholder="TELEFONE CELULAR" mask="(99)99999-9999" ng-model="aluno.celular" required>
+                <input class="form-control circle-input" type="text" name="celular" placeholder="TELEFONE CELULAR" mask="(99)99999-9999"
+                    ng-model="aluno.celular" required>
             </div>
         </div>
         <div class="col-md-3">
             <div class="form-group">
-                <input class="form-control circle-input" type="text" name="telefonere-residencial" placeholder="TELEFONE RESIDENCIAL" mask="(99)9999-9999" ng-model="aluno.telefoneResidencial" >
+                <input class="form-control circle-input" type="text" name="telefonere-residencial" placeholder="TELEFONE RESIDENCIAL" mask="(99)9999-9999"
+                    ng-model="aluno.telefoneResidencial">
             </div>
         </div>
         <div class="col-md-3">
             <div class="form-group">
-                <input class="form-control circle-input" type="text" name="telefone-recorrente" placeholder="TELEFONE RECORRENTE" mask="(99)9999-9999" ng-model="aluno.telefoneRecorrente" >
+                <input class="form-control circle-input" type="text" name="telefone-recorrente" placeholder="TELEFONE RECORRENTE" mask="(99)9999-9999"
+                    ng-model="aluno.telefoneRecorrente">
             </div>
         </div>
         <div class="col-md-3">
             <div class="form-group">
-                <input class="form-control circle-input" type="text" name="telefone-complementar" placeholder="TELEFONE COMPLEMENTAR" mask="(99)9999-9999" ng-model="aluno.telefoneComplementar" >
+                <input class="form-control circle-input" type="text" name="telefone-complementar" placeholder="TELEFONE COMPLEMENTAR" mask="(99)9999-9999"
+                    ng-model="aluno.telefoneComplementar">
             </div>
         </div>
     </div>
@@ -283,12 +168,12 @@
     <div class="row">
         <div class="col-md-3">
             <div class="form-group">
-                <input class="form-control circle-input" type="text" name="peso" placeholder="PESO" ng-model="aluno.peso" >
+                <input class="form-control circle-input" type="text" name="peso" placeholder="PESO" ng-model="aluno.peso">
             </div>
         </div>
         <div class="col-md-3">
             <div class="form-group">
-                <input class="form-control circle-input" type="text" name="altura" placeholder="ALTURA" ng-model="aluno.altura" >
+                <input class="form-control circle-input" type="text" name="altura" placeholder="ALTURA" ng-model="aluno.altura">
             </div>
         </div>
         <div class="col-md-6">
@@ -301,12 +186,12 @@
     <div class="row">
         <div class="col-md-3">
             <div class="form-group">
-                <input class="form-control circle-input" type="text" name="tipo-sanguineo" placeholder="SANGUE/RH" ng-model="aluno.tipoSanguineo" >
+                <input class="form-control circle-input" type="text" name="tipo-sanguineo" placeholder="SANGUE/RH" ng-model="aluno.tipoSanguineo">
             </div>
         </div>
         <div class="col-md-3">
             <div class="form-group">
-                <input class="form-control circle-input" type="text" name="pa-media" placeholder="P.A MÉDIA" ng-model="aluno.paMedia" >
+                <input class="form-control circle-input" type="text" name="pa-media" placeholder="P.A MÉDIA" ng-model="aluno.paMedia">
             </div>
         </div>
         <div class="col-md-3">
@@ -316,7 +201,7 @@
         </div>
         <div class="col-md-3">
             <div class="form-group">
-                <input class="form-control circle-input" type="text" name="quando-pode-entregar" placeholder="QUANDO PODE ENTREGAR?" ng-model="aluno.quandoPodeEntregar" >
+                <input class="form-control circle-input" type="text" name="quando-pode-entregar" placeholder="QUANDO PODE ENTREGAR?" ng-model="aluno.quandoPodeEntregar">
             </div>
         </div>
     </div>
@@ -328,12 +213,13 @@
         </div>
         <div class="col-md-3">
             <div class="form-group">
-                <input class="form-control circle-input" type="text" name="medicacao" placeholder="QUAL?" ng-model="aluno.medicamentosUtilizados" >
+                <input class="form-control circle-input" type="text" name="medicacao" placeholder="QUAL?" ng-model="aluno.medicamentosUtilizados">
             </div>
         </div>
         <div class="col-md-6">
             <div class="form-group">
-                <input class="form-control circle-input" type="text" name="contato-emergencia" placeholder="EM CASO DE ACIDENTE, AVISAR À" ng-model="aluno.nomeContatoEmergencia">
+                <input class="form-control circle-input" type="text" name="contato-emergencia" placeholder="EM CASO DE ACIDENTE, AVISAR À"
+                    ng-model="aluno.nomeContatoEmergencia">
             </div>
         </div>
     </div>
@@ -362,12 +248,14 @@
     <div class="row">
         <div class="col-md-6 m-t-10">
             <div class="form-group">
-                <input class="form-control circle-input" type="text" name="telefone-contato-emergencia-1" mask="(99)9999-9999" placeholder="TELEFONE 01" ng-model="aluno.telefoneContatoEmergencia1">
+                <input class="form-control circle-input" type="text" name="telefone-contato-emergencia-1" mask="(99)9999-9999" placeholder="TELEFONE 01"
+                    ng-model="aluno.telefoneContatoEmergencia1">
             </div>
         </div>
         <div class="col-md-6 m-t-10">
             <div class="form-group">
-                <input class="form-control circle-input" type="text" name="telefone-contato-emergencia-2" mask="(99)9999-9999" placeholder="TELEFONE 02" ng-model="aluno.telefoneContatoEmergencia2">
+                <input class="form-control circle-input" type="text" name="telefone-contato-emergencia-2" mask="(99)9999-9999" placeholder="TELEFONE 02"
+                    ng-model="aluno.telefoneContatoEmergencia2">
             </div>
         </div>
     </div>
@@ -384,7 +272,7 @@
         </div>
         <div class="col-md-6">
             <div class="form-group">
-                <select ng-change="teste()" class="form-control circle-input" ng-model="aluno.desconto" name="desconto" ng-options="desconto.valor as desconto.label for desconto in descontos track by desconto.valor"
+                <select class="form-control circle-input" ng-model="aluno.desconto" name="desconto" ng-options="desconto.valor as desconto.label for desconto in descontos track by desconto.valor"
                     required>
                     <option value="" selected disabled>Selecione o desconto</option>
                 </select>
@@ -396,25 +284,143 @@
             <button class="btn-midnight" ng-click="limparForm()">LIMPAR</button>
         </div>
         <div class="col-md-3 m-t-30 col-xs-5" ng-if="!aluno.id">
-            <button type="button" class="btn-alizarin" data-target=".bs-example-modal-lg" ng-click="salvarAluno(aluno)">ADICIONAR ALUNO</button>
+            <button type="button" class="btn-alizarin" data-target=".bs-example-modal-lg" ng-click="salvarAluno(aluno)" ng-disabled="formNovoAluno.$invalid">ADICIONAR ALUNO</button>
         </div>
         <div class="col-md-3 m-t-30 col-xs-5" ng-if="aluno.id">
-            <button type="button" class="btn-alizarin" data-target=".bs-example-modal-lg" ng-click="alterarAluno(aluno)">ALTERAR ALUNO</button>
+            <button type="button" class="btn-alizarin" data-target=".bs-example-modal-lg" ng-click="alterarAluno(aluno)" ng-disabled="formNovoAluno.$invalid">ALTERAR ALUNO</button>
         </div>
     </div>
-</div>
+</form>
 
-
-<!-- modal conclusao de inclusao de aluno-->
-<div id="modalAlunoSalvo" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content t-c card">
-            <h3>PARABÉNS, NOVO ALUNO ADICIONADO COM SUCESSO!</h3>
-            <div class="row">
-                <div class="col-md-4 m-t-20 col-md-offset-4">
-                    <button class="btn-midnight" data-dismiss="modal">ADICIONAR NOVO ALUNO</button>
+<!-- modal dados marciais -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4>DADOS MARCIAIS</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1">
+                        <div class="form-group">
+                            <input class="form-control circle-input" type="text" name="nome" placeholder="QUAL ARTE TREINOU POR MAIS TEMPO?" ng-model="aluno.arteMaisTreinada"
+                                minlength="4">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1">
+                        <div class="form-group">
+                            <input class="form-control circle-input" type="text" name="nome" placeholder="QUANTO TEMPO?" ng-model="aluno.tempoArteMaisTreinada"
+                                minlength="3">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1">
+                        <div class="form-group">
+                            <input class="form-control circle-input" type="text" name="nome" placeholder="SUA GRADUAÇÃO?" ng-model="aluno.graduacao"
+                                minlength="3">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-1">
+                        <label class="label-modal">JÁ DEU AULAS?</label>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="radio">
+                            <input class="radio-modal" type="radio" name="ja-deu-aula" value="1" ng-model="aluno.deuAula">
+                            <label>SIM</label>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="radio">
+                            <input class="radio-modal" type="radio" name="ja-deu-aula" value="0" ng-model="aluno.deuAula">
+                            <label>NÃO</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row m-t-10">
+                    <div class="col-md-6 col-md-offset-1">
+                        <label class="label-modal">EQUIVALÊNCIA?</label>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="radio">
+                            <input class="radio-modal" type="radio" name="equivalencia" value="1" ng-model="aluno.equivalencia">
+                            <label>SIM</label>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="radio">
+                            <input class="radio-modal" type="radio" name="equivalencia" value="0" ng-model="aluno.equivalencia">
+                            <label>NÃO</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1 m-t-20">
+                        <div id="uploadFile" class="upload-group">
+                            <input id="file-input" class="input-none" type="file" name="file">
+                            <label class="btn-upload" for="file-input">ANEXAR DOCS</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-header">
+                    <h4>PESQUISA</h4>
+                </div>
+                <div class="row m-t-20">
+                    <div class="col-md-6 col-md-offset-1">
+                        <label class="label-modal">JÁ CONHECIA?</label>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="radio">
+                            <input class="radio-modal" type="radio" name="ja-conhecia" value="1" ng-model="aluno.jaConhecia">
+                            <label>SIM</label>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="radio">
+                            <input class="radio-modal" type="radio" name="ja-conhecia" value="0" ng-model="aluno.jaConhecia">
+                            <label>NÃO</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-10 m-t-10 col-md-offset-1">
+                        <div class="form-group">
+                            <input class="form-control circle-input" type="text" name="como-conheceu" placeholder="COMO NOS CONHECEU?" ng-model="aluno.comoConheceu"
+                                minlength="4">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="col-md-3">
+                            <button type="button" class="btn-midnight" data-dismiss="modal">FECHAR</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+
+
+    <!-- modal conclusao de inclusao de aluno-->
+    <div id="modalAlunoSalvo" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content t-c card">
+                <h3>PARABÉNS, NOVO ALUNO ADICIONADO COM SUCESSO!</h3>
+                <div class="row">
+                    <div class="col-md-4 m-t-20 col-md-offset-4">
+                        <button class="btn-midnight" data-dismiss="modal">ADICIONAR NOVO ALUNO</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

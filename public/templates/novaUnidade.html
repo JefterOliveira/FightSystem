@@ -79,8 +79,8 @@
                 <button class="btn-midnight" ng-click="limparForm()">LIMPAR</button>
             </div>
             <div class="col-md-3">
-                <button ng-click="cadastrarUnidade(unidade);" type="button" class="btn-alizarin" ng-if="!unidade.id">ADICIONAR UNIDADE</button> <!--ng-disabled="formNovaUnidade.$invalid"-->
-                <button ng-click="alterarUnidade(unidade);" type="button" class="btn-alizarin" ng-if="unidade.id">ALTERAR UNIDADE</button>
+                <button ng-click="cadastrarUnidade(unidade);" type="button" class="btn-alizarin" ng-if="!unidade.id" ng-disabled="formNovaUnidade.$invalid">ADICIONAR UNIDADE</button> 
+                <button ng-click="alterarUnidade(unidade);" type="button" class="btn-alizarin" ng-if="unidade.id" ng-disabled="formNovaUnidade.$invalid">ALTERAR UNIDADE</button>
             </div>
         </div>
     </div>

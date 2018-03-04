@@ -92,8 +92,8 @@
                     <button class="btn-midnight" ng-click="limparForm()">LIMPAR</button>
                 </div>
                 <div class="col-md-3 m-t-30">
-                    <button ng-click="salvarTurma(turma)" type="button" class="btn-alizarin" ng-if="!turma.id" ng-disabled="formNovaTurma.$invalid">ADICIONAR TURMA</button>
-                    <button ng-click="alterarTurma(turma)" type="button" class="btn-alizarin" ng-if="turma.id" ng-disabled="formNovaTurma.$invalid">ALTERAR TURMA</button>
+                    <button ng-click="salvarTurma(turma)" type="button" class="btn-alizarin" ng-if="!turma.id" ng-disabled="formNovaTurma.$invalid || turma.diaAulaTurmaApoio.length === 0 || turma.alunos.length === 0">ADICIONAR TURMA</button>
+                    <button ng-click="alterarTurma(turma)" type="button" class="btn-alizarin" ng-if="turma.id" ng-disabled="formNovaTurma.$invalid || turma.diaAulaTurmaApoio.length === 0 || turma.alunos.length === 0">ALTERAR TURMA</button>
                 </div>
             </div>
         </div>

@@ -26,10 +26,6 @@ function novoAlunoCtrl($scope, $state, apiService, apiConstantes){
     }
     getCategorias();
 
-    $scope.teste = function(){
-        console.log($scope.aluno)
-    }
-
     function prepararAluno(aluno){
         aluno.identidade = aluno.identidade.replace(/[\D]+/g, '')
         aluno.cpf = aluno.cpf.replace(/[\D]+/g, '')

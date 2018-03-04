@@ -77,8 +77,6 @@ function novaTurmaCtrl($scope, $state, apiService, apiConstantes){
     }
 
     function prepararTurmaDiaAula2(array){
-        console.log(array)
-        console.log(array.map(item => item => item.diaSemana))
         return array.map(item => item.diaSemana)
     }
 
