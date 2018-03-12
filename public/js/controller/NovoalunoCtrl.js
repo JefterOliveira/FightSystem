@@ -39,9 +39,8 @@ function novoAlunoCtrl($scope, $state, apiService, apiConstantes){
     }
 
     $scope.salvarAluno = function(aluno){
-        console.log(aluno)
         aluno = prepararAluno(aluno)
-        console.log(aluno)
+        $("#modalAlunoSalvo").modal('show');
         apiService.post(apiConstantes.baseUrlAPI + apiConstantes.aluno, aluno).then(function(result){
             $scope.aluno = {}
             $("#modalAlunoSalvo").modal('show');
