@@ -74,6 +74,18 @@ input.input-none {
 	margin: 0;
 }
 
+#imglogo {
+    width: auto!important;
+    height: auto!important;
+}
+
+.no-padding {
+    padding: 0 !important;
+}
+
+.adicionar-logo {
+    padding-top: 14px;
+}
 .radio {
 	margin-top: 0;
 	margin-bottom: 0;
